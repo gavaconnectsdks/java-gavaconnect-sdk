@@ -1,4 +1,4 @@
-package gavaconnect-sdks.com.github;
+package gavaconnectsdks.com.github;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
