@@ -2,15 +2,16 @@ package gavaconnectsdks.com.github.http;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.http.*;
-import  java.time.Duration;
-import  java.util.Map;
+import java.net.http.HttpClient;
+import  java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.time.Duration;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import jdk.internal.net.http.HttpRequestBuilderImpl;
 
 
 public class GavaHttpClient {
@@ -121,12 +122,16 @@ public class GavaHttpClient {
 
     //SYNC REQUESTS
 
-    public <T> T get (String path,Class<T> responseType) throws IOException,InterruptedException {
+    public <T> T get (String path,Class<T> responseType,Map<String,String> header) throws IOException,InterruptedException {
         try{
-        HttpRequest request=baseRequest(path)
-                            .GET()
-                            .build();
-        HttpResponse<String> response=executeWithRetry(request);
+        HttpRequest.Builder requestBuilder=baseRequest(path)
+                            .GET();
+
+        for (Map.Entry<String, String> en : header.entrySet()) {
+            requestBuilder.header(en.getKey(), en.getValue());
+        }
+
+        HttpResponse<String> response=executeWithRetry(requestBuilder.build());
 
         return mapper.readValue(response.body(), responseType);
         }catch(JsonProcessingException e){
@@ -135,23 +140,27 @@ public class GavaHttpClient {
     }
 
 
-    public <T> T post (String path,Object body,Class<T> responseType) throws IOException,InterruptedException {
+    public <T> T post (String path,Object body,Class<T> responseType,String accessToken) throws IOException,InterruptedException {
         String json=mapper.writeValueAsString(body);
         HttpRequest request=baseRequest(path)
                             .POST(HttpRequest.BodyPublishers.ofString(json))
+                            .header("Authorization", "Bearer "+accessToken)
                             .build();
         HttpResponse<String> response=executeWithRetry(request);
 
         return mapper.readValue(response.body(), responseType);
     }
 
-      public <T> CompletableFuture<T> getAsync (String path,Class<T> responseType) throws IOException,InterruptedException {
-        HttpRequest request=baseRequest(path)
-                            .GET()
-                            .build();
-        HttpResponse<String> response=executeWithRetry(request);
+      public <T> CompletableFuture<T> getAsync (String path,Class<T> responseType,Map<String,String> header) throws IOException,InterruptedException {
+        
+         HttpRequest.Builder requestBuilder=baseRequest(path)
+                            .GET();
 
-        return executeAsyncWithRetry(request)
+        for (Map.Entry<String, String> en : header.entrySet()) {
+            requestBuilder.header(en.getKey(), en.getValue());
+        }
+
+        return executeAsyncWithRetry(requestBuilder.build())
                .thenApply(HttpResponse::body)
                .thenApply(body->{
                 try {
@@ -161,11 +170,12 @@ public class GavaHttpClient {
                 }
                });
     }
-    public <T> CompletableFuture<T> postAsync (String path,Object body,Class<T> responseType) throws IOException,InterruptedException {
+    public <T> CompletableFuture<T> postAsync (String path,Object body,Class<T> responseType,String accessToken) throws IOException,InterruptedException {
         try{
         String json=mapper.writeValueAsString(body);
         HttpRequest request=baseRequest(path)
                             .POST(HttpRequest.BodyPublishers.ofString(json))
+                            .header("Authorization", "Bearer "+accessToken)
                             .build();
         HttpResponse<String> response=executeWithRetry(request);
 
