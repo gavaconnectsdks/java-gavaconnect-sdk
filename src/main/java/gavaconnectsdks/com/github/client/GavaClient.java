@@ -105,4 +105,8 @@ public class GavaClient {
 
         return auth.getAccessToken();
     }
+
+    public String fileTurnOverTaxReturn(){
+        return "";
+    }
 }

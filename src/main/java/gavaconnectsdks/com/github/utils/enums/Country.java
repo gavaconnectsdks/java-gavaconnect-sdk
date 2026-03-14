@@ -274,5 +274,18 @@ public enum Country {
 
     }
 
+    public static boolean isValid(String countryCode){
+        if(countryCode==null||countryCode.isBlank()){
+            return false;
+        }
+        for (Country c:values()){
+            if(c.code.equalsIgnoreCase(countryCode)){
+                return true;
+            }
+        }
+        return false;
+
+    }
+
     
 }

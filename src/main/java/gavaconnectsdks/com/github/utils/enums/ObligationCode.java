@@ -33,5 +33,18 @@ public enum ObligationCode {
         throw new IllegalArgumentException("Invalid obli code: "+obligationCode);
 
     }
+
+    public static boolean isValid(Integer obligationCode){
+
+        if(obligationCode==null){
+            return false;
+        }
+        for (ObligationCode c:values()){
+            if(c.code==obligationCode){
+                return true;
+            }
+        }
+        return false;
+    }
     
 }
