@@ -1,22 +1,70 @@
 package gavaconnectsdks.com.github.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import gavaconnectsdks.com.github.utils.annotations.CustomPattern;
+import gavaconnectsdks.com.github.utils.annotations.ObligationCode;
+import gavaconnectsdks.com.github.utils.annotations.Pin;
 
 public class NilReturnRequest {
 
-    @JsonProperty("TAXPAYERDETAILS")
-    private NilReturnTaxPayerDetails taxPayerDetails;
+    @Pin(message="Invalid TaxPayerPin")
+    private String TaxPayerPIN;
 
-    public NilReturnRequest(){}
-    public NilReturnRequest(NilReturnTaxPayerDetails taxPayerDetails){
-        this.taxPayerDetails=taxPayerDetails;
+    @ObligationCode(message="Invalid ObligationCode")
+    private String ObligationCode;
+
+    @CustomPattern(pattern="^\\d{2}")
+    private String Month;
+    
+    @CustomPattern(pattern="^\\d{4}")
+    private String Year;
+
+
+    private NilReturnRequest(Builder builder){
+        this.Month=builder.Month;
+        this.ObligationCode=builder.ObligationCode;
+        this.TaxPayerPIN=builder.TaxPayerPIN;
+        this.Year=builder.Year;
     }
+    
+    private static class Builder{
 
-    public NilReturnTaxPayerDetails getTaxPayerDetails() {
-        return this.taxPayerDetails;
-    }
+    @Pin(message="Invalid TaxPayerPin")
+    private String TaxPayerPIN;
 
-    public void setTaxPayerDetails(NilReturnTaxPayerDetails taxPayerDetails) {
-        this.taxPayerDetails = taxPayerDetails;
+    @ObligationCode(message="Invalid ObligationCode")
+    private String ObligationCode;
+
+    @CustomPattern(pattern="^\\d{2}")
+    private String Month;
+    
+    @CustomPattern(pattern="^\\d{4}")
+    private String Year;
+
+        public Builder Month(String Month) {
+            this.Month = Month;
+            return this;
+        }
+
+        public Builder ObligationCode(String ObligationCode) {
+            this.ObligationCode = ObligationCode;
+            return this;
+        }
+
+        public Builder TaxPayerPIN(String TaxPayerPIN) {
+            this.TaxPayerPIN = TaxPayerPIN;
+            return this;
+        }
+
+        public Builder Year(String Year) {
+            this.Year = Year;
+            return  this;
+        }
+
+        public NilReturnRequest build(){
+            return  new NilReturnRequest(this);
+        }
+
+
+    
     }
 }

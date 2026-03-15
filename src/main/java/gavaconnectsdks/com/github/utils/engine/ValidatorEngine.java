@@ -2,9 +2,11 @@ package gavaconnectsdks.com.github.utils.engine;
 
 import java.lang.reflect.Field;
 import java.time.LocalDate;
+import java.util.regex.Pattern;
 
 import gavaconnectsdks.com.github.utils.annotations.Adult;
 import gavaconnectsdks.com.github.utils.annotations.CountryCode;
+import gavaconnectsdks.com.github.utils.annotations.CustomPattern;
 import gavaconnectsdks.com.github.utils.annotations.Email;
 import gavaconnectsdks.com.github.utils.annotations.IdentificationNumber;
 import gavaconnectsdks.com.github.utils.annotations.MobileNumber;
@@ -12,6 +14,7 @@ import gavaconnectsdks.com.github.utils.annotations.ObligationCode;
 import gavaconnectsdks.com.github.utils.annotations.Pin;
 import gavaconnectsdks.com.github.utils.validators.AdultValidator;
 import gavaconnectsdks.com.github.utils.validators.CountryCodeValidator;
+import gavaconnectsdks.com.github.utils.validators.CustomPatternValidator;
 import gavaconnectsdks.com.github.utils.validators.EmailValidator;
 import gavaconnectsdks.com.github.utils.validators.IdentificationNumberValidator;
 import gavaconnectsdks.com.github.utils.validators.MobileNumberValidator;
@@ -65,6 +68,18 @@ public class ValidatorEngine {
                 ObligationCode obligationCode=field.getAnnotation(ObligationCode.class);
                 if(!ObligationCodeValidator.isValid((Integer) value)){
                     throw new RuntimeException(obligationCode.message());
+                }
+            }
+             if (field.isAnnotationPresent(CustomPattern.class)) {
+                CustomPattern customPattern=field.getAnnotation(CustomPattern.class);
+                String pattern=customPattern.pattern();
+                if (pattern.isEmpty()||pattern.isBlank()) {
+                    throw new RuntimeException("Pattern cannot be empty or null");  
+                }
+                String toTest=CustomPatternValidator.isValid((String) value);
+                Pattern setPattern=Pattern.compile(pattern);
+                if(toTest!=null && setPattern.matcher(toTest).matches()){
+                    throw new RuntimeException(customPattern.message());
                 }
             }
         }

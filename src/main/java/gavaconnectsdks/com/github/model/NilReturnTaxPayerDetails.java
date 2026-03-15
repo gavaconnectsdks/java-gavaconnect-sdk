@@ -2,6 +2,8 @@ package gavaconnectsdks.com.github.model;
 
 
 
+import gavaconnectsdks.com.github.utils.annotations.CustomPattern;
+import gavaconnectsdks.com.github.utils.annotations.ObligationCode;
 import gavaconnectsdks.com.github.utils.annotations.Pin;
 
 public class NilReturnTaxPayerDetails {
@@ -9,16 +11,19 @@ public class NilReturnTaxPayerDetails {
     @Pin
     private String TaxPayerPIN;
 
+    @CustomPattern(pattern="^\\d{2}$")
     private String Month;
 
+    @CustomPattern(pattern="^\\d{4}$")
     private String Year;
 
-    private float  GrossTurnover;
+    @ObligationCode
+    private String  ObligationCode;
 
     public NilReturnTaxPayerDetails(){}
 
     private NilReturnTaxPayerDetails(Builder builder){
-        this.GrossTurnover=builder.GrossTurnover;
+        this.ObligationCode=builder.ObligationCode;
         this.Month=builder.Month;
         this.TaxPayerPIN=builder.TaxPayerPIN;
         this.Year=builder.Year;
@@ -31,15 +36,18 @@ public class NilReturnTaxPayerDetails {
     @Pin
     private String TaxPayerPIN;
 
+    @CustomPattern(pattern="^\\d{2}$")
     private String Month;
 
+    @CustomPattern(pattern="^\\d{4}$")
     private String Year;
 
-    private float  GrossTurnover;
+    @ObligationCode
+    private String  ObligationCode;
     
     public Builder(){}
-        public Builder GrossTurnover(float GrossTurnover) {
-        this.GrossTurnover = GrossTurnover;
+        public Builder ObligationCode(String ObligationCode) {
+        this.ObligationCode = ObligationCode;
         return  this;
     }
 
@@ -63,8 +71,8 @@ public class NilReturnTaxPayerDetails {
 
     }
 
-    public float getGrossTurnover() {
-        return GrossTurnover;
+    public String getObligationCode() {
+        return ObligationCode;
     }
 
     public String getMonth() {
