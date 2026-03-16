@@ -22,5 +22,8 @@ public class CustDecStatusCheckerRequest {
     public String getDeclarationNo() {
         return this.DeclarationNo;
     }
+    public Builder builder(){
+        return new Builder();
+    }
     
 }

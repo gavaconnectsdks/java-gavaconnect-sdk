@@ -74,4 +74,33 @@ public class PinRegistrationRequest {
         
     }
 
+    public LocalDate getDateOfBirth() {
+        return this.DateOfBirth;
+    }
+
+    public String getEmailAddress() {
+        return this.EmailAddress;
+    }
+
+    public String getIdentificationNumber() {
+        return this.IdentificationNumber;
+    }
+
+    public String getIsPinWithOblig() {
+        return this.isPinWithOblig;
+    }
+
+    public String getMobileNumber() {
+        return this.MobileNumber;
+    }
+
+    public String getTaxPayerType() {
+        return this.TaxPayerType;
+    }
+
+    public Builder builder(){
+        return new Builder();
+    }
+
+
 }

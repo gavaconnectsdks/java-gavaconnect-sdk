@@ -63,8 +63,26 @@ public class NilReturnRequest {
         public NilReturnRequest build(){
             return  new NilReturnRequest(this);
         }
-
-
-    
     }
+
+    public String getMonth() {
+        return this.Month;
+    }
+
+    public String getObligationCode() {
+        return this.ObligationCode;
+    }
+
+    public String getTaxPayerPIN() {
+        return this.TaxPayerPIN;
+    }
+
+    public String getYear() {
+        return this.Year;
+    }
+
+    public Builder builder(){
+        return new Builder();
+    }
+    
 }
