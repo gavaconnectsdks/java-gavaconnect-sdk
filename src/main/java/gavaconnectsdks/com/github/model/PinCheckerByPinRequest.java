@@ -27,7 +27,7 @@ public class PinCheckerByPinRequest {
         return this.kraPin;
     }
     
-    public Builder builder(){
+    public static Builder builder(){
         return new Builder();
     }
     

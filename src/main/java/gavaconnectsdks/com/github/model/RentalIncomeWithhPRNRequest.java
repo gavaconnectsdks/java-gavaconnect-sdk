@@ -37,7 +37,7 @@ public class RentalIncomeWithhPRNRequest {
     }
 
     
-    public Builder builder(){
+    public static Builder builder(){
         return new Builder();
     }
 }

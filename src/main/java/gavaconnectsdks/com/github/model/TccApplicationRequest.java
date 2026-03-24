@@ -44,5 +44,7 @@ public class TccApplicationRequest {
         return this.TaxPayerPIN;
     }
 
-    
+    public static Builder builder(){
+        return new Builder();
+    }
 }

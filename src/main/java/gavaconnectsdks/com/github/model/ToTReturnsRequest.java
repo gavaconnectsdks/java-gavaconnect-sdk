@@ -57,4 +57,25 @@ public class ToTReturnsRequest {
         }
 
     }
+
+    public float getGrossTurnOver() {
+        return this.GrossTurnOver;
+    }
+
+    public String getMonth() {
+        return this.Month;
+    }
+
+    public String getTaxpayerPIN() {
+        return this.TaxpayerPIN;
+    }
+
+    public String getYear() {
+        return this.Year;
+    }
+
+    public Builder builder(){
+        return new Builder();
+    }
+
 }

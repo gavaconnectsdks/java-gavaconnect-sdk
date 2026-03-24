@@ -98,7 +98,7 @@ public class PinRegistrationRequest {
         return this.TaxPayerType;
     }
 
-    public Builder builder(){
+    public static Builder builder(){
         return new Builder();
     }
 

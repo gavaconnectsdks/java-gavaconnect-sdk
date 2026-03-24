@@ -29,7 +29,7 @@ public class FetchTaxpayerObligationRequest {
     public String getTaxPayerId() {
         return this.taxPayerId;
     }
-    public Builder builder(){
+    public static Builder builder(){
         return new Builder();
     }
     

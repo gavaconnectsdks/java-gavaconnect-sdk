@@ -42,7 +42,7 @@ public class IncomeTaxWithPRNReequest {
         return this.transactionDetails;
     }
 
-    public Builder builder(){
+    public static Builder builder(){
         return new Builder();
     }
 

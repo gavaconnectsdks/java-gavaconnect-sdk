@@ -22,7 +22,7 @@ public class CustDecStatusCheckerRequest {
     public String getDeclarationNo() {
         return this.DeclarationNo;
     }
-    public Builder builder(){
+    public static Builder builder(){
         return new Builder();
     }
     

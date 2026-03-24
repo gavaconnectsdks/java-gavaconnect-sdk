@@ -30,7 +30,7 @@ public class ImportCertificateCheckerRequest {
         return this.certificateNumber;
     }
 
-    public Builder builder(){
+    public static Builder builder(){
         return new Builder();
     }
     

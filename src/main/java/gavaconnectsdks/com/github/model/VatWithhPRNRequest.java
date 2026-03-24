@@ -28,14 +28,14 @@ public class VatWithhPRNRequest {
         }
     }
 
-    public Builder builder(){
+    public static Builder builder(){
         return new Builder();
     }
 
     public List<VatWithhDetails> getTransactionDetails() {
-        return transactionDetails;
+        return this.transactionDetails;
     }
     public PRNRequestHeader getTransactionHeader() {
-        return transactionHeader;
+        return this.transactionHeader;
     }
 }

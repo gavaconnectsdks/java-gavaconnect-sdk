@@ -42,7 +42,7 @@ public class PinCheckerByIdRequest {
         return this.TaxpayerType;
     }
 
-    public Builder builder(){
+    public static  Builder builder(){
         return new Builder();
     }
 }

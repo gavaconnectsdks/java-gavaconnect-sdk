@@ -81,7 +81,7 @@ public class NilReturnRequest {
         return this.Year;
     }
 
-    public Builder builder(){
+    public static Builder builder(){
         return new Builder();
     }
     

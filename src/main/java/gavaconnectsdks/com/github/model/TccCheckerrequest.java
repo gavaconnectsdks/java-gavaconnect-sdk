@@ -40,5 +40,9 @@ public class TccCheckerrequest {
     public String getTccNumber() {
         return this.tccNumber;
     }
+
+    public static Builder builder(){
+        return new Builder();
+    }
     
 }
