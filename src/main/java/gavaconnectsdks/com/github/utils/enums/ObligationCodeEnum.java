@@ -1,6 +1,6 @@
 package gavaconnectsdks.com.github.utils.enums;
 
-public enum ObligationCode {
+public enum ObligationCodeEnum {
     INCOME_TAX_INDIVIDUAL_RESIDENT(1),
     INCOME_TAX_INDIVIDUAL_NON_RESIDENT(2),
     INCOME_TAX_INDIVIDUAL_PARTNERSHIP(3),
@@ -12,7 +12,7 @@ public enum ObligationCode {
 
     private final int code;
 
-    ObligationCode(int code) {
+    ObligationCodeEnum(int code) {
         this.code = code;
     }
 
@@ -20,12 +20,12 @@ public enum ObligationCode {
         return code;
     }
 
-     public static ObligationCode fromCode(Integer obligationCode){
+     public static ObligationCodeEnum fromCode(Integer obligationCode){
 
         if(obligationCode==null){
             throw new IllegalArgumentException("Invalid obligation code: "+obligationCode);
         }
-        for (ObligationCode c:values()){
+        for (ObligationCodeEnum c:values()){
             if(c.code==obligationCode){
                 return c;
             }
@@ -39,7 +39,7 @@ public enum ObligationCode {
         if(obligationCode==null){
             return false;
         }
-        for (ObligationCode c:values()){
+        for (ObligationCodeEnum c:values()){
             if(c.code==obligationCode){
                 return true;
             }

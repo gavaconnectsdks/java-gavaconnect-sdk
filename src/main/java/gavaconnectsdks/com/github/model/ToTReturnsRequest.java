@@ -1,54 +1,60 @@
 package gavaconnectsdks.com.github.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import gavaconnectsdks.com.github.utils.annotations.CustomPattern;
 import gavaconnectsdks.com.github.utils.annotations.Pin;
 
 public class ToTReturnsRequest {
     @Pin
-    private String TaxpayerPIN;
+    @JsonProperty("TaxpayerPIN")
+    private String taxpayerPIN;
 
     @CustomPattern(pattern="^\\d{2}$")
-    private String Month;
+    @JsonProperty("Month")
+    private String month;
 
     @CustomPattern(pattern="^\\d{2}$")
-    private String Year;
+    @JsonProperty("Year")
+    private String year;
 
-    private float GrossTurnOver;
+    @JsonProperty("GrossTurnOver")
+    private float grossTurnOver;
 
 
     private ToTReturnsRequest(Builder builder){
-        this.GrossTurnOver=builder.GrossTurnOver;
-        this.Month=builder.Month;
-        this.TaxpayerPIN=builder.TaxpayerPIN;
-        this.Year=builder.Year;
+        this.grossTurnOver=builder.grossTurnOver;
+        this.month=builder.month;
+        this.taxpayerPIN=builder.taxpayerPIN;
+        this.year=builder.year;
     }
 
     private static class Builder{
-        private String TaxpayerPIN;
+        private String taxpayerPIN;
 
-        private String Month;
+        private String month;
 
-        private String Year;
+        private String year;
 
-        private float GrossTurnOver;
+        private float grossTurnOver;
 
-        public Builder GrossTurnOver(float GrossTurnOver) {
-            this.GrossTurnOver = GrossTurnOver;
+        public Builder grossTurnOver(float grossTurnOver) {
+            this.grossTurnOver = grossTurnOver;
             return this;
         }
 
-        public Builder Month(String Month) {
-            this.Month = Month;
+        public Builder month(String month) {
+            this.month = month;
             return this;
         }
 
-        public Builder TaxpayerPIN(String TaxpayerPIN) {
-            this.TaxpayerPIN = TaxpayerPIN;
+        public Builder taxpayerPIN(String taxpayerPIN) {
+            this.taxpayerPIN = taxpayerPIN;
             return this;
         }
 
-        public Builder Year(String Year) {
-            this.Year = Year;
+        public Builder year(String year) {
+            this.year = year;
             return this;
         }
 
@@ -59,19 +65,19 @@ public class ToTReturnsRequest {
     }
 
     public float getGrossTurnOver() {
-        return this.GrossTurnOver;
+        return this.grossTurnOver;
     }
 
     public String getMonth() {
-        return this.Month;
+        return this.month;
     }
 
     public String getTaxpayerPIN() {
-        return this.TaxpayerPIN;
+        return this.taxpayerPIN;
     }
 
     public String getYear() {
-        return this.Year;
+        return this.year;
     }
 
     public Builder builder(){

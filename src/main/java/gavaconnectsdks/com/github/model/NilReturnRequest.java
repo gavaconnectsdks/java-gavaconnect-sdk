@@ -1,62 +1,70 @@
 package gavaconnectsdks.com.github.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import gavaconnectsdks.com.github.utils.annotations.CustomPattern;
 import gavaconnectsdks.com.github.utils.annotations.ObligationCode;
 import gavaconnectsdks.com.github.utils.annotations.Pin;
+import gavaconnectsdks.com.github.utils.enums.ObligationCodeEnum;
 
 public class NilReturnRequest {
 
     @Pin(message="Invalid TaxPayerPin")
-    private String TaxPayerPIN;
+    @JsonProperty("TaxpayerPIN")
+    private String taxpayerPIN;
 
+    @JsonProperty("ObligationCode")
     @ObligationCode(message="Invalid ObligationCode")
-    private String ObligationCode;
+    private String obligationCode;
 
-    @CustomPattern(pattern="^\\d{2}")
-    private String Month;
+
+    @CustomPattern(pattern="^\\d{2}$")
+    @JsonProperty("Month")
+    private String month;
     
-    @CustomPattern(pattern="^\\d{4}")
-    private String Year;
+    @CustomPattern(pattern="^\\d{4}$")
+    @JsonProperty("Year")
+    private String year;
 
 
     private NilReturnRequest(Builder builder){
-        this.Month=builder.Month;
-        this.ObligationCode=builder.ObligationCode;
-        this.TaxPayerPIN=builder.TaxPayerPIN;
-        this.Year=builder.Year;
+        this.month=builder.month;
+        this.obligationCode= String.valueOf(builder.obligationCode.getCode());
+        this.taxpayerPIN=builder.taxpayerPIN;
+        this.year=builder.year;
     }
     
     private static class Builder{
 
     @Pin(message="Invalid TaxPayerPin")
-    private String TaxPayerPIN;
+    private String taxpayerPIN;
 
-    @ObligationCode(message="Invalid ObligationCode")
-    private String ObligationCode;
+    
+    private ObligationCodeEnum obligationCode;
 
     @CustomPattern(pattern="^\\d{2}")
-    private String Month;
+    private String month;
     
     @CustomPattern(pattern="^\\d{4}")
-    private String Year;
+    private String year;
 
-        public Builder Month(String Month) {
-            this.Month = Month;
+        public Builder month(String month) {
+            this.month = month;
             return this;
         }
 
-        public Builder ObligationCode(String ObligationCode) {
-            this.ObligationCode = ObligationCode;
+        public Builder obligationCode(ObligationCodeEnum obligationCode) {
+            this.obligationCode = obligationCode;
             return this;
         }
 
-        public Builder TaxPayerPIN(String TaxPayerPIN) {
-            this.TaxPayerPIN = TaxPayerPIN;
+        public Builder taxPayerPIN(String taxPayerPIN) {
+            this.taxpayerPIN = taxPayerPIN;
             return this;
         }
 
-        public Builder Year(String Year) {
-            this.Year = Year;
+        public Builder year(String year) {
+            this.year = year;
             return  this;
         }
 
@@ -66,19 +74,19 @@ public class NilReturnRequest {
     }
 
     public String getMonth() {
-        return this.Month;
+        return this.month;
     }
 
     public String getObligationCode() {
-        return this.ObligationCode;
+        return this.obligationCode;
     }
 
     public String getTaxPayerPIN() {
-        return this.TaxPayerPIN;
+        return this.taxpayerPIN;
     }
 
     public String getYear() {
-        return this.Year;
+        return this.year;
     }
 
     public static Builder builder(){

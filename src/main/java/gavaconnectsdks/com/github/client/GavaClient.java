@@ -6,30 +6,46 @@ import java.util.Base64;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import gavaconnectsdks.com.github.config.Environment;
+import gavaconnectsdks.com.github.config.GavaConfig;
 import gavaconnectsdks.com.github.http.GavaHttpClient;
+import gavaconnectsdks.com.github.model.CustDecStatusCheckerRequest;
+import gavaconnectsdks.com.github.model.ExciseLicenceCheckerByCertNoRequest;
+import gavaconnectsdks.com.github.model.ExciseLicenseCheckerByPinRequest;
+import gavaconnectsdks.com.github.model.FetchTaxpayerObligationRequest;
+import gavaconnectsdks.com.github.model.ImportCertCheckerByPinRequest;
+import gavaconnectsdks.com.github.model.ImportCertificateCheckerRequest;
+import gavaconnectsdks.com.github.model.IncomeTaxWithPRNReequest;
+import gavaconnectsdks.com.github.model.InvoiceCheckerRequest;
+import gavaconnectsdks.com.github.model.KnowKraOfficeRequest;
+import gavaconnectsdks.com.github.model.NilReturnRequest;
+import gavaconnectsdks.com.github.model.PinCheckerByIdRequest;
+import gavaconnectsdks.com.github.model.PinCheckerByPinRequest;
+import gavaconnectsdks.com.github.model.PinRegistrationRequest;
+import gavaconnectsdks.com.github.model.RentalIncomeWithhPRNRequest;
+import gavaconnectsdks.com.github.model.TccApplicationRequest;
+import gavaconnectsdks.com.github.model.TccCheckerrequest;
+import gavaconnectsdks.com.github.model.ToTReturnsRequest;
+import gavaconnectsdks.com.github.model.VatExcemptionCheckerRequest;
+import gavaconnectsdks.com.github.model.VatWithhPRNRequest;
 
 public class GavaClient {
-    private final String consumerKey;
-    private final String consumerSecret;
     private final Auth auth;
-    private final Environment environment;
-    private final GavaHttpClient httpClient;
-
-
-    public GavaClient(String consumerKey,String consumerSecret,Environment environment){
-        this.consumerKey=consumerKey;
-        this.consumerSecret=consumerSecret;
-        this.environment=environment;
-        this.auth = new Auth(consumerKey,consumerSecret,environment);
+    private final GavaConfig gavaConfig;
+    private GavaHttpClient httpClient;
+    public GavaClient(GavaConfig gavaConfig){
+        this.gavaConfig=gavaConfig;
+        this.auth = new Auth(gavaConfig.getConsumerKey(),gavaConfig.getConsumerSecret(),gavaConfig.getEnvironment());
         this.httpClient=GavaHttpClient.builder()
-                                      .baseUrl(environment.getBaseUrl())
+                                      .baseUrl(gavaConfig.getEnvironment().getBaseUrl())
                                       .build();
 
     }
 
-    private class OAuthObject{
+    private static class OAuthObject{
         @JsonProperty("access_token")
         private String accessToken;
 
@@ -60,17 +76,22 @@ public class GavaClient {
 
     }
 
-    private class Auth{
+    public class Auth{
         private String accessToken;
         private Long expiresAt;
         private String consumerKey;
         private String consumerSecret;
         private Environment environment;
+        private ObjectMapper objectMapper = new ObjectMapper();
 
         public Auth(String consumerKey,String consumerSecret,Environment environment){
             this.consumerKey=consumerKey;
             this.consumerSecret=consumerSecret;
             this.environment=environment;
+        }
+
+        public String getAuthorizationBearerHeader() throws JsonProcessingException {
+            return objectMapper.writeValueAsString(Map.ofEntries(Map.entry("Authorization", "Bearer "+this.getAccessToken())));   
         }
 
         public String getAccessToken(){
@@ -101,12 +122,90 @@ public class GavaClient {
     
     }
 
-    public String fileNilReturn(){
-
+    public String getToken(){
         return auth.getAccessToken();
     }
+    public String fileNilReturn(NilReturnRequest nilReturnRequest){
 
-    public String fileTurnOverTaxReturn(){
         return "";
     }
+
+    public String fileTurnOverTaxReturn(ToTReturnsRequest toTReturnsRequest){
+        return "";
+    }
+
+    public String checkPINByPIN(PinCheckerByPinRequest pinCheckerByPinRequest ){
+        return "";
+    }
+
+    public String checkPINByID(PinCheckerByIdRequest pinCheckerByIdRequest){
+        return "";
+    }
+
+    public String knowKRATaxServiceOffice(KnowKraOfficeRequest knowKraOfficeRequest){
+        return "";
+    }
+
+    public String checkIncomeTaxExemption( ){
+        return "";
+    }
+
+    public String checkImportCertificateByCertificateNumber(ImportCertificateCheckerRequest importCertificateCheckerRequest ){
+        return "";
+    }
+
+    public String checkImportCertificateByPIN(ImportCertCheckerByPinRequest importCertCheckerByPinRequest ){
+        return "";
+    }
+
+    public String fetchTaxpayerObligations(FetchTaxpayerObligationRequest fetchTaxpayerObligationRequest ){
+        return "";
+    }
+
+    public String registerKRAPINIndividual(PinRegistrationRequest pinRegistrationRequest){
+        return "";
+    }
+
+    public String applyTaxComplianceCertificate(TccApplicationRequest tccApplicationRequest){
+        return "";
+    }
+
+    public String checkTaxCompliance(TccCheckerrequest tccCheckerrequest){
+        return "";
+    }
+
+    public String checkCustomsDeclarationStatus(CustDecStatusCheckerRequest custDecStatusCheckerRequest){
+        return "";
+    }
+
+    public String checkVatExemption(VatExcemptionCheckerRequest vatExcemptionCheckerRequest){
+        return "";
+    }
+
+    public String checkExciseLicenseByPIN(ExciseLicenseCheckerByPinRequest exciseLicenseCheckerByPinRequest ){
+        return "";
+    }
+
+    public String checkExciseLicenseByCertificateNumber(ExciseLicenceCheckerByCertNoRequest exciseLicenceCheckerByCertNoRequest){
+        return "";
+    }
+
+    public String checkInvoice(InvoiceCheckerRequest invoiceCheckerRequest){
+        return "";
+    }
+
+    public String generateIncomeTaxWithholdingPRN(IncomeTaxWithPRNReequest incomeTaxWithPRNReequest ){
+        return "";
+    }
+
+    public String generateRentalWithholdingPRN(RentalIncomeWithhPRNRequest rentalIncomeWithhPRNRequest){
+        return "";
+    }
+
+    public String generateVATWithholdingPRN(VatWithhPRNRequest vatWithhPRNRequest){
+        return "";
+    }
+
+
+
 }
