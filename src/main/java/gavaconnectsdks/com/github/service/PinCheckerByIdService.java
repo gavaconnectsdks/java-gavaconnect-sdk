@@ -1,21 +1,30 @@
 package gavaconnectsdks.com.github.service;
 
+import java.io.IOException;
+
 import gavaconnectsdks.com.github.client.GavaClient;
 import gavaconnectsdks.com.github.config.GavaConfig;
-import gavaconnectsdks.com.github.model.GavaRequest;
-import gavaconnectsdks.com.github.model.GavaResponse;
+import gavaconnectsdks.com.github.dtos.requests.PinCheckerByIdRequest;
+import gavaconnectsdks.com.github.dtos.responses.PinCheckerByIdResponse;
+import gavaconnectsdks.com.github.utils.engine.ValidatorEngine;
 
 public class PinCheckerByIdService extends IService {
 
-    private String endpoint="/checker/v1/pin";
-
     public PinCheckerByIdService(GavaConfig config,GavaClient.Auth auth){
         super(config,auth);
+        this.endpoint="/checker/v1/pin";
     }
 
-    @Override
-    public GavaResponse request(GavaRequest request) {
-        return super.request(request);
+
+    public PinCheckerByIdResponse request(PinCheckerByIdRequest request) throws IllegalAccessException,IOException,InterruptedException {
+        try {
+             ValidatorEngine.validate(request);
+            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
+            PinCheckerByIdResponse response=httpClient.post(path, request, PinCheckerByIdResponse.class, auth.getAuthorizationBearerHeader());
+            return response;    
+        } catch (IllegalAccessException|IOException|InterruptedException  e) {
+            throw e;
+        }
     }
 
 }

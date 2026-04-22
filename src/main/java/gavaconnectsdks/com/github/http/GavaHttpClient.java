@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -140,7 +141,17 @@ public class GavaHttpClient {
     }
 
 
-    public <T> T post (String path,Object body,Class<T> responseType,String accessToken) throws IOException,InterruptedException {
+    public <T> T post (String path,Object body,JavaType responseType,String accessToken) throws IOException,InterruptedException {
+        String json=mapper.writeValueAsString(body);
+        HttpRequest request=baseRequest(path)
+                            .POST(HttpRequest.BodyPublishers.ofString(json))
+                            .header("Authorization", "Bearer "+accessToken)
+                            .build();
+        HttpResponse<String> response=executeWithRetry(request);
+
+        return mapper.readValue(response.body(), responseType);
+    }
+     public <T> T post (String path,Object body,Class<T> responseType,String accessToken) throws IOException,InterruptedException {
         String json=mapper.writeValueAsString(body);
         HttpRequest request=baseRequest(path)
                             .POST(HttpRequest.BodyPublishers.ofString(json))

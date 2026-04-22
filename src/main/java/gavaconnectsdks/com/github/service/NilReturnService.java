@@ -2,29 +2,35 @@ package gavaconnectsdks.com.github.service;
 
 import java.io.IOException;
 
+import com.fasterxml.jackson.databind.JavaType;
+
 import gavaconnectsdks.com.github.client.GavaClient;
 import gavaconnectsdks.com.github.config.GavaConfig;
-import gavaconnectsdks.com.github.model.NilReturnRequest;
-import gavaconnectsdks.com.github.model.NilReturnResponse;
+import gavaconnectsdks.com.github.dtos.ResponseWrapper;
+import gavaconnectsdks.com.github.dtos.requests.NilReturnRequest;
+import gavaconnectsdks.com.github.dtos.requests.TaxpayerDetailsWrapper;
+import gavaconnectsdks.com.github.dtos.responses.NilReturnResponse;
+import gavaconnectsdks.com.github.utils.engine.ValidatorEngine;
 
 public class NilReturnService extends  IService {
-    protected  String endpoint="/dtd/return/v1/nil";
-
     public NilReturnService(GavaConfig config,GavaClient.Auth auth){
         super(config,auth);
+        this.endpoint="/dtd/return/v1/nil";
     }
 
-    public NilReturnResponse request(NilReturnRequest request) throws  IOException,InterruptedException {
-
+    public NilReturnResponse request(NilReturnRequest request) throws  IOException,InterruptedException,IllegalAccessException{
         try{
-        int month=Integer.getInteger(request.getMonth());
-        if(month<1 || month >12){
-            //throw an error.
-        }
-        String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
-        NilReturnResponse response=httpClient.post(path, request, NilReturnResponse.class, auth.getAuthorizationBearerHeader());
-        return response;
-    }catch(IOException  |InterruptedException e ){
+            ValidatorEngine.validate(request);
+            int month=Integer.getInteger(request.getMonth());
+            if(month<1 || month >12){
+                throw new IllegalArgumentException("Month must be numeric between 01 and 12 inclusive.");
+            }
+            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
+            TaxpayerDetailsWrapper<NilReturnRequest> taxpayerDetailsWrapper=new TaxpayerDetailsWrapper<>(request);
+            JavaType type=this.mapper.getTypeFactory().constructParametricType(TaxpayerDetailsWrapper.class, NilReturnResponse.class);
+            ResponseWrapper<NilReturnResponse> response=httpClient.post(path, taxpayerDetailsWrapper, type, auth.getAuthorizationBearerHeader());
+            return response.getResponse();
+    }catch(IOException  | InterruptedException | IllegalAccessException e ){
         throw  e;
     }
     }
