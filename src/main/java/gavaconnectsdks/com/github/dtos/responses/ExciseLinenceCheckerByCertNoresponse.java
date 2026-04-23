@@ -1,11 +1,8 @@
 package gavaconnectsdks.com.github.dtos.responses;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import gavaconnectsdks.com.github.dtos.ExciseLicenseDetail;
-import gavaconnectsdks.com.github.dtos.PinDetail;
+import gavaconnectsdks.com.github.dtos.ExciseLicenseDetail2;
 
 public class ExciseLinenceCheckerByCertNoresponse {
     @JsonProperty(value="Status")
@@ -17,23 +14,16 @@ public class ExciseLinenceCheckerByCertNoresponse {
     @JsonProperty(value="Message")
     private String message;
 
-    @JsonProperty(value="PIN_DETAILS")
-    private List<PinDetail> pinDetails;
-
-    @JsonProperty(value="ExciseLicenseDetails")
-    private ExciseLicenseDetail exciseLicenseDetail;
+    @JsonProperty(value="ExciseLicenseDATA")
+    private ExciseLicenseDetail2 exciseLicenseDetail;
 
 
-    public void setExciseLicenseDetails(ExciseLicenseDetail exciseLicenseDetail) {
+    public void setExciseLicenseDetails(ExciseLicenseDetail2 exciseLicenseDetail) {
         this.exciseLicenseDetail = exciseLicenseDetail;
     }
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public void setPinDetails(List<PinDetail> pinDetails) {
-        this.pinDetails = pinDetails;
     }
 
     public void setResponseCode(String responseCode) {
@@ -44,16 +34,12 @@ public class ExciseLinenceCheckerByCertNoresponse {
         this.status = status;
     }
 
-    public ExciseLicenseDetail getExciseLicenseDetails() {
+    public ExciseLicenseDetail2 getExciseLicenseDetails() {
         return this.exciseLicenseDetail;
     }
 
     public String getMessage() {
         return this.message;
-    }
-
-    public List<PinDetail> getPinDetails() {
-        return this.pinDetails;
     }
 
     public String getResponseCode() {

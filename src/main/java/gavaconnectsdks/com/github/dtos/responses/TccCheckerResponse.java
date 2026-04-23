@@ -5,44 +5,52 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import gavaconnectsdks.com.github.dtos.TCCData;
 
 public class TccCheckerResponse {
-    private String ResponseCode;
-    private String Message;
-    private String Status;
+
+    @JsonProperty("ResponseCode")
+    private String responseCode;
+
+    @JsonProperty("Message")
+    private String message;
+
+    @JsonProperty("Status")
+    private String status;
 
     @JsonProperty(value="TCCData")
-    private TCCData tccData;
-
-    public void setMessage(String Message) {
-        this.Message = Message;
-    }
-
-    public void setResponseCode(String ResponseCode) {
-        this.ResponseCode = ResponseCode;
-    }
-
-    public void setStatus(String Status) {
-        this.Status = Status;
-    }
-
-    public void setTccData(TCCData tccData) {
-        this.tccData = tccData;
-    }
+    private TCCData taxComplianceCertificateData;
 
     public String getMessage() {
-        return this.Message;
+        return this.message;
     }
 
     public String getResponseCode() {
-        return this.ResponseCode;
+        return this.responseCode;
     }
 
     public String getStatus() {
-        return this.Status;
+        return this.status;
     }
 
-    public TCCData getTccData() {
-        return this.tccData;
+    public TCCData getTaxComplianceCertificateData() {
+        return this.taxComplianceCertificateData;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setResponseCode(String responseCode) {
+        this.responseCode = responseCode;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setTaxComplianceCertificateData(TCCData taxComplianceCertificateData) {
+        this.taxComplianceCertificateData = taxComplianceCertificateData;
+    }
+
+    
+    
     
 }

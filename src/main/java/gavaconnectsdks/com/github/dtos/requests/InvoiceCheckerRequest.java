@@ -2,8 +2,12 @@ package gavaconnectsdks.com.github.dtos.requests;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class InvoiceCheckerRequest {
     private String invoiceNumber;
+    
+    @JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd")
     private LocalDate invoiceDate;
 
     private InvoiceCheckerRequest(Builder builder){
@@ -15,12 +19,12 @@ public class InvoiceCheckerRequest {
         private String invoiceNumber;
         private LocalDate invoicedDate;
 
-        public Builder InvoicedDate(LocalDate invoicedDate) {
+        public Builder invoicedDate(LocalDate invoicedDate) {
             this.invoicedDate = invoicedDate;
             return this;
         }
 
-        public Builder InvoiceNumber(String invoiceNumber) {
+        public Builder invoiceNumber(String invoiceNumber) {
             this.invoiceNumber = invoiceNumber;
             return  this;
         }

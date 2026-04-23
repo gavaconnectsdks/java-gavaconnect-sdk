@@ -6,25 +6,25 @@ import gavaconnectsdks.com.github.utils.enums.CustomDeclarationStatus;
 
 public class CustDecStatusCheckerResponse {
     @JsonProperty(value="response_code")
-    private String ResponseCode;
+    private String responseCode;
 
     @JsonProperty(value="status")
-    private CustomDeclarationStatus Status;
+    private CustomDeclarationStatus status;
 
-    public void setResponseCode(String ResponseCode) {
-        this.ResponseCode = ResponseCode;
+    public void setResponseCode(String responseCode) {
+        this.responseCode = responseCode;
     }
 
-    public void setStatus(CustomDeclarationStatus Status) {
-        this.Status = Status;
+    public void setStatus(CustomDeclarationStatus status) {
+        this.status = status;
     }
 
     public String getResponseCode() {
-        return this.ResponseCode;
+        return this.responseCode;
     }
 
     public CustomDeclarationStatus getStatus() {
-        return this.Status;
+        return this.status;
     }
 
     

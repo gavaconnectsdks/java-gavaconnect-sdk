@@ -19,7 +19,7 @@ public class ExciseLicenseCheckerByPinResponse {
     private String message;
 
     @JsonProperty(value="PIN_DETAILS")
-    private List<PinDetail> pinDetails;
+    private PinDetail pinDetails;
 
     @JsonProperty(value="ExciseLicenseDetails")
     private List<ExciseLicenseDetail> exciseLicenseDetails;
@@ -39,7 +39,7 @@ public class ExciseLicenseCheckerByPinResponse {
         this.message = message;
     }
 
-    public void setPinDetails(List<PinDetail> pinDetails) {
+    public void setPinDetails(PinDetail pinDetails) {
         this.pinDetails = pinDetails;
     }
 
@@ -63,7 +63,7 @@ public class ExciseLicenseCheckerByPinResponse {
         return this.message;
     }
 
-    public List<PinDetail> getPinDetails() {
+    public PinDetail getPinDetails() {
         return this.pinDetails;
     }
 

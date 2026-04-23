@@ -1,16 +1,20 @@
 package gavaconnectsdks.com.github.dtos.requests;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class CustDecStatusCheckerRequest {
-    private String DeclarationNo;
+
+    @JsonProperty("DeclarationNo")
+    private String declarationNumber;
 
     private CustDecStatusCheckerRequest(Builder builder){
-        this.DeclarationNo=builder.DeclarationNo;
+        this.declarationNumber=builder.declarationNumber;
     }
     private static class Builder{
-        private String DeclarationNo;
+        private String declarationNumber;
         
-        public Builder DeclarationNo(String DeclarationNo) {
-            this.DeclarationNo = DeclarationNo;
+        public Builder declarationNumber(String declarationNumber) {
+            this.declarationNumber = declarationNumber;
             return this;
         }
         public CustDecStatusCheckerRequest build (){
@@ -19,9 +23,10 @@ public class CustDecStatusCheckerRequest {
         
     }
 
-    public String getDeclarationNo() {
-        return this.DeclarationNo;
+    public String getDeclarationNumber() {
+        return this.declarationNumber;
     }
+
     public static Builder builder(){
         return new Builder();
     }

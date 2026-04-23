@@ -3,18 +3,18 @@ package gavaconnectsdks.com.github.dtos.requests;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ExciseLicenceCheckerByCertNoRequest {
-    @JsonProperty(value="ExciseLicenseNo")
-    private String exciseLicenseNumber;
+    @JsonProperty(value="ExciseLicenceNo")
+    private String exciseLicenceNumber;
 
     private ExciseLicenceCheckerByCertNoRequest(Builder builder){
-        this.exciseLicenseNumber=builder.exciseLicenseNumber;
+        this.exciseLicenceNumber=builder.exciseLicenceNumber;
     }
 
     private static class Builder{
-        private String exciseLicenseNumber;
+        private String exciseLicenceNumber;
 
-        public Builder ExciseLicenseNumber(String exciseLicenseNumber) {
-            this.exciseLicenseNumber = exciseLicenseNumber;
+        public Builder exciseLicenceNumber(String exciseLicenceNumber) {
+            this.exciseLicenceNumber = exciseLicenceNumber;
             return this;
         }
 
@@ -25,7 +25,7 @@ public class ExciseLicenceCheckerByCertNoRequest {
     }
 
     public String getExciseLicenseNumber() {
-        return this.exciseLicenseNumber;
+        return this.exciseLicenceNumber;
     }
 
     public static Builder builder(){

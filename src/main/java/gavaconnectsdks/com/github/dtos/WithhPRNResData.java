@@ -5,10 +5,10 @@ import java.time.LocalDateTime;
 public class WithhPRNResData {
     private String prnNumber;
     private LocalDateTime prnDate;
-    private float amount;
+    private float prnAmount;
 
-    public void setAmount(float amount) {
-        this.amount = amount;
+    public void setPrnAmount(float amount) {
+        this.prnAmount = amount;
     }
 
     public void setPrnDate(LocalDateTime prnDate) {
@@ -19,8 +19,8 @@ public class WithhPRNResData {
         this.prnNumber = prnNumber;
     }
 
-    public float getAmount() {
-        return this.amount;
+    public float getPrnAmount() {
+        return this.prnAmount;
     }
 
     public LocalDateTime getPrnDate() {

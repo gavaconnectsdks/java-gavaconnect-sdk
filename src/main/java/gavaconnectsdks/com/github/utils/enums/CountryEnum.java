@@ -1,6 +1,6 @@
 package gavaconnectsdks.com.github.utils.enums;
 
-public enum Country {
+public enum CountryEnum {
 
     ANDORRA("AD"),
     UNITED_ARAB_EMIRATES("AE"),
@@ -253,7 +253,7 @@ public enum Country {
 
     private final String code;
 
-    Country(String code) {
+    CountryEnum(String code) {
         this.code = code;
     }
 
@@ -261,11 +261,11 @@ public enum Country {
         return code;
     }
 
-    public static Country fromCode(String countryCode){
+    public static CountryEnum fromCode(String countryCode){
         if(countryCode==null||countryCode.isBlank()){
             throw new IllegalArgumentException("Invalid country code: "+countryCode);
         }
-        for (Country c:values()){
+        for (CountryEnum c:values()){
             if(c.code.equalsIgnoreCase(countryCode)){
                 return c;
             }
@@ -278,7 +278,7 @@ public enum Country {
         if(countryCode==null||countryCode.isBlank()){
             return false;
         }
-        for (Country c:values()){
+        for (CountryEnum c:values()){
             if(c.code.equalsIgnoreCase(countryCode)){
                 return true;
             }

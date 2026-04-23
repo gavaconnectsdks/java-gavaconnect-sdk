@@ -4,14 +4,12 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import gavaconnectsdks.com.github.utils.annotations.Pin;
 
 public class InvoiceDetail {
     private  LocalDate salesDate;
     private  LocalDateTime transmissionDate;
     private  LocalDateTime invoiceDate;
     private  Integer totalItemCount;
-    @Pin
     private  String supplierPin;
     private  String supplierName;
     private  String deviceSerialNumber;

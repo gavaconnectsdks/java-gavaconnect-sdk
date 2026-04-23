@@ -1,51 +1,65 @@
 package gavaconnectsdks.com.github.dtos.responses;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class TccApplicationResponse {
-    private String ResponseCode;
-    private String Message;
-    private String Status;
-    private String AckNumber;
-    private String TCCNumber;
+    @JsonProperty("ResponseCode")
+    private String responseCode;
 
-    public void setAckNumber(String AckNumber) {
-        this.AckNumber = AckNumber;
+    @JsonProperty("Message")
+    private String message;
+
+    @JsonProperty("Status")
+    private String status;
+
+    @JsonProperty("AckNumber")
+    private String acknowledgmentNumber;
+
+    @JsonProperty("TCCNumber")
+    private String taxComplianceCertificateNumber;
+
+    
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public void setMessage(String Message) {
-        this.Message = Message;
+    public void setResponseCode(String responseCode) {
+        this.responseCode = responseCode;
     }
 
-    public void setResponseCode(String ResponseCode) {
-        this.ResponseCode = ResponseCode;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public void setStatus(String Status) {
-        this.Status = Status;
+    public void setAcknowledgmentNumber(String acknowledgmentNumber) {
+        this.acknowledgmentNumber = acknowledgmentNumber;
     }
 
-    public void setTCCNumber(String TCCNumber) {
-        this.TCCNumber = TCCNumber;
-    }
-
-    public String getAckNumber() {
-        return this.AckNumber;
+    public String getAcknowledgmentNumber() {
+        return this.acknowledgmentNumber;
     }
 
     public String getMessage() {
-        return this.Message;
+        return this.message;
     }
 
     public String getResponseCode() {
-        return this.ResponseCode;
+        return this.responseCode;
     }
 
     public String getStatus() {
-        return this.Status;
+        return this.status;
     }
 
-    public String getTCCNumber() {
-        return this.TCCNumber;
+    public String getTaxComplianceCertificateNumber() {
+        return this.taxComplianceCertificateNumber;
     }
 
+    public void setTaxComplianceCertificateNumber(String taxComplianceCertificateNumber) {
+        this.taxComplianceCertificateNumber = taxComplianceCertificateNumber;
+    }
+
+    
     
 }

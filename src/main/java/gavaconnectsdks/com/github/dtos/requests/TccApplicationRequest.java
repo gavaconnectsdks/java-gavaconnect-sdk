@@ -1,48 +1,52 @@
 package gavaconnectsdks.com.github.dtos.requests;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import gavaconnectsdks.com.github.utils.annotations.Length;
 import gavaconnectsdks.com.github.utils.annotations.Pin;
 
 public class TccApplicationRequest {
     @Pin
-    String TaxPayerPIN;
+    @JsonProperty("TaxpayerPIN")
+    String taxpayerPIN;
 
     @Length(max=400)
-    String ReasonForTCC;
+    @JsonProperty("ReasonForTCC")
+    String reasonForTaxComplianceCertificate;
 
     private TccApplicationRequest(Builder builder){
-        this.ReasonForTCC=builder.ReasonForTCC;
-        this.TaxPayerPIN=builder.TaxPayerPIN;
+        this.reasonForTaxComplianceCertificate=builder.reasonForTaxComplianceCertificate;
+        this.taxpayerPIN=builder.taxpayerPIN;
     }
 
     private static class Builder{
-        private String TaxPayerPIN;
-        private String ReasonForTCC;
+        private String taxpayerPIN;
+        private String reasonForTaxComplianceCertificate;
 
-        public Builder ReasonForTCC(String ReasonForTCC) {
-            this.ReasonForTCC = ReasonForTCC;
+        public Builder reasonForTaxComplianceCertificate(String reasonForTaxComplianceCertificate) {
+            this.reasonForTaxComplianceCertificate = reasonForTaxComplianceCertificate;
             return this;
         }
 
-        public Builder TaxPayerPIN(String TaxPayerPIN) {
-            this.TaxPayerPIN = TaxPayerPIN;
+        public Builder taxpayerPIN(String taxpayerPIN) {
+            this.taxpayerPIN = taxpayerPIN;
             return this;
         }
 
         public TccApplicationRequest build(){
             return  new TccApplicationRequest(this);
-        }
-
-        
+        }   
     }
 
-    public String getReasonForTCC() {
-        return this.ReasonForTCC;
+    public String getTaxpayerPIN() {
+        return this.taxpayerPIN;
     }
 
-    public String getTaxPayerPIN() {
-        return this.TaxPayerPIN;
+    public String getReasonForTaxComplianceCertificate() {
+        return reasonForTaxComplianceCertificate;
     }
+
+    
 
     public static Builder builder(){
         return new Builder();

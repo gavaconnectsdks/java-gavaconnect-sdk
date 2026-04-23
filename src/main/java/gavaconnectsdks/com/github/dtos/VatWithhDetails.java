@@ -28,27 +28,27 @@ public class VatWithhDetails {
         private float taxAmount;
 
       
-        public Builder GrossAmount(float grossAmount) {
+        public Builder grossAmount(float grossAmount) {
             this.grossAmount = grossAmount;
             return this;
         }
-        public Builder InvoiceNo(String invoiceNo) {
+        public Builder invoiceNo(String invoiceNo) {
             this.invoiceNo = invoiceNo;
             return this;
         }
-        public Builder PaymentDate(LocalDateTime paymentDate) {
+        public Builder paymentDate(LocalDateTime paymentDate) {
             this.paymentDate = paymentDate;
             return this;
         }
-        public Builder TaxAmount(float taxAmount) {
+        public Builder taxAmount(float taxAmount) {
             this.taxAmount = taxAmount;
             return this;
         }
-        public Builder TaxRate(float taxRate) {
+        public Builder taxRate(float taxRate) {
             this.taxRate = taxRate;
             return this;
         }
-        public Builder WithholdeePin(String withholdeePin) {
+        public Builder withholdeePin(String withholdeePin) {
             this.withholdeePin = withholdeePin;
             return this;
         }
@@ -60,7 +60,7 @@ public class VatWithhDetails {
     }
 
 
-     public Builder builder(){
+     public static Builder builder(){
         return new Builder();
     }
 

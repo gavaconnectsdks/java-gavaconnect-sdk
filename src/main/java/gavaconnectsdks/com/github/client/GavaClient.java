@@ -15,6 +15,7 @@ import gavaconnectsdks.com.github.dtos.requests.CustDecStatusCheckerRequest;
 import gavaconnectsdks.com.github.dtos.requests.ExciseLicenceCheckerByCertNoRequest;
 import gavaconnectsdks.com.github.dtos.requests.ExciseLicenseCheckerByPinRequest;
 import gavaconnectsdks.com.github.dtos.requests.FetchTaxpayerObligationRequest;
+import gavaconnectsdks.com.github.dtos.requests.ITExceptionCheckerRequest;
 import gavaconnectsdks.com.github.dtos.requests.ImportCertCheckerByPinRequest;
 import gavaconnectsdks.com.github.dtos.requests.ImportCertificateCheckerRequest;
 import gavaconnectsdks.com.github.dtos.requests.IncomeTaxWithPRNReequest;
@@ -30,6 +31,25 @@ import gavaconnectsdks.com.github.dtos.requests.TccCheckerrequest;
 import gavaconnectsdks.com.github.dtos.requests.ToTReturnsRequest;
 import gavaconnectsdks.com.github.dtos.requests.VatExcemptionCheckerRequest;
 import gavaconnectsdks.com.github.dtos.requests.VatWithhPRNRequest;
+import gavaconnectsdks.com.github.dtos.responses.CustDecStatusCheckerResponse;
+import gavaconnectsdks.com.github.dtos.responses.ExciseLicenseCheckerByPinResponse;
+import gavaconnectsdks.com.github.dtos.responses.ExciseLinenceCheckerByCertNoresponse;
+import gavaconnectsdks.com.github.dtos.responses.FetchTaxpayerObligationresponse;
+import gavaconnectsdks.com.github.dtos.responses.ITExemptionCheckerResponse;
+import gavaconnectsdks.com.github.dtos.responses.ImportCertCheckerByPinResponse;
+import gavaconnectsdks.com.github.dtos.responses.ImportCertificateCheckerResponse;
+import gavaconnectsdks.com.github.dtos.responses.InvoiceCheckerResponse;
+import gavaconnectsdks.com.github.dtos.responses.KnowKraOfficeResponse;
+import gavaconnectsdks.com.github.dtos.responses.NilReturnResponse;
+import gavaconnectsdks.com.github.dtos.responses.PinCheckerByIdResponse;
+import gavaconnectsdks.com.github.dtos.responses.PinCheckerByPinResponse;
+import gavaconnectsdks.com.github.dtos.responses.PinRegistrationResponse;
+import gavaconnectsdks.com.github.dtos.responses.TccApplicationResponse;
+import gavaconnectsdks.com.github.dtos.responses.TccCheckerResponse;
+import gavaconnectsdks.com.github.dtos.responses.ToTReturnsResponse;
+import gavaconnectsdks.com.github.dtos.responses.VatExcemptionCheckerResponse;
+import gavaconnectsdks.com.github.dtos.responses.WithholdingPRNResponse;
+import gavaconnectsdks.com.github.exceptions.ValidationException;
 import gavaconnectsdks.com.github.http.GavaHttpClient;
 
 public class GavaClient {
@@ -125,85 +145,124 @@ public class GavaClient {
     public String getToken(){
         return auth.getAccessToken();
     }
-    public String fileNilReturn(NilReturnRequest nilReturnRequest){
+    public NilReturnResponse fileNilReturn(NilReturnRequest nilReturnRequest){
+        if(nilReturnRequest==null) throw new ValidationException("Request body cannot be null");
 
-        return "";
+           return null;
     }
 
-    public String fileTurnOverTaxReturn(ToTReturnsRequest toTReturnsRequest){
-        return "";
+    public ToTReturnsResponse fileTurnOverTaxReturn(ToTReturnsRequest toTReturnsRequest){
+        if(toTReturnsRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String checkPINByPIN(PinCheckerByPinRequest pinCheckerByPinRequest ){
-        return "";
+    public PinCheckerByPinResponse checkPINByPIN(PinCheckerByPinRequest pinCheckerByPinRequest ){
+        if(pinCheckerByPinRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String checkPINByID(PinCheckerByIdRequest pinCheckerByIdRequest){
-        return "";
+    public PinCheckerByIdResponse checkPINByID(PinCheckerByIdRequest pinCheckerByIdRequest){
+        if(pinCheckerByIdRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String knowKRATaxServiceOffice(KnowKraOfficeRequest knowKraOfficeRequest){
-        return "";
+    public KnowKraOfficeResponse knowKRATaxServiceOffice(KnowKraOfficeRequest knowKraOfficeRequest){
+        if(knowKraOfficeRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String checkIncomeTaxExemption( ){
-        return "";
+    public ITExemptionCheckerResponse checkIncomeTaxExemption(ITExceptionCheckerRequest itExceptionCheckerRequest ){
+        if(itExceptionCheckerRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String checkImportCertificateByCertificateNumber(ImportCertificateCheckerRequest importCertificateCheckerRequest ){
-        return "";
+    public ImportCertificateCheckerResponse checkImportCertificateByCertificateNumber(ImportCertificateCheckerRequest importCertificateCheckerRequest ){
+        if(importCertificateCheckerRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String checkImportCertificateByPIN(ImportCertCheckerByPinRequest importCertCheckerByPinRequest ){
-        return "";
+    public ImportCertCheckerByPinResponse checkImportCertificateByPIN(ImportCertCheckerByPinRequest importCertCheckerByPinRequest ){
+        if(importCertCheckerByPinRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String fetchTaxpayerObligations(FetchTaxpayerObligationRequest fetchTaxpayerObligationRequest ){
-        return "";
+    public FetchTaxpayerObligationresponse fetchTaxpayerObligations(FetchTaxpayerObligationRequest fetchTaxpayerObligationRequest ){
+        if(fetchTaxpayerObligationRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String registerKRAPINIndividual(PinRegistrationRequest pinRegistrationRequest){
-        return "";
+    public PinRegistrationResponse registerKRAPINIndividual(PinRegistrationRequest pinRegistrationRequest){
+        if(pinRegistrationRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String applyTaxComplianceCertificate(TccApplicationRequest tccApplicationRequest){
-        return "";
+    public TccApplicationResponse applyTaxComplianceCertificate(TccApplicationRequest tccApplicationRequest){
+        if(tccApplicationRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String checkTaxCompliance(TccCheckerrequest tccCheckerrequest){
-        return "";
+    public TccCheckerResponse checkTaxCompliance(TccCheckerrequest tccCheckerrequest){
+        if(tccCheckerrequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String checkCustomsDeclarationStatus(CustDecStatusCheckerRequest custDecStatusCheckerRequest){
-        return "";
+    public CustDecStatusCheckerResponse checkCustomsDeclarationStatus(CustDecStatusCheckerRequest custDecStatusCheckerRequest){
+        if(custDecStatusCheckerRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String checkVatExemption(VatExcemptionCheckerRequest vatExcemptionCheckerRequest){
-        return "";
+    public VatExcemptionCheckerResponse checkVatExemption(VatExcemptionCheckerRequest vatExcemptionCheckerRequest){
+        if(vatExcemptionCheckerRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String checkExciseLicenseByPIN(ExciseLicenseCheckerByPinRequest exciseLicenseCheckerByPinRequest ){
-        return "";
+    public ExciseLicenseCheckerByPinResponse checkExciseLicenseByPIN(ExciseLicenseCheckerByPinRequest exciseLicenseCheckerByPinRequest ){
+        if(exciseLicenseCheckerByPinRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String checkExciseLicenseByCertificateNumber(ExciseLicenceCheckerByCertNoRequest exciseLicenceCheckerByCertNoRequest){
-        return "";
+    public ExciseLinenceCheckerByCertNoresponse checkExciseLicenseByCertificateNumber(ExciseLicenceCheckerByCertNoRequest exciseLicenceCheckerByCertNoRequest){
+        if(exciseLicenceCheckerByCertNoRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String checkInvoice(InvoiceCheckerRequest invoiceCheckerRequest){
-        return "";
+    public InvoiceCheckerResponse checkInvoice(InvoiceCheckerRequest invoiceCheckerRequest){
+        if(invoiceCheckerRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String generateIncomeTaxWithholdingPRN(IncomeTaxWithPRNReequest incomeTaxWithPRNReequest ){
-        return "";
+    public WithholdingPRNResponse generateIncomeTaxWithholdingPRN(IncomeTaxWithPRNReequest incomeTaxWithPRNReequest ){
+        if(incomeTaxWithPRNReequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String generateRentalWithholdingPRN(RentalIncomeWithhPRNRequest rentalIncomeWithhPRNRequest){
-        return "";
+    public WithholdingPRNResponse generateRentalWithholdingPRN(RentalIncomeWithhPRNRequest rentalIncomeWithhPRNRequest){
+        if(rentalIncomeWithhPRNRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
-    public String generateVATWithholdingPRN(VatWithhPRNRequest vatWithhPRNRequest){
-        return "";
+    public WithholdingPRNResponse generateVATWithholdingPRN(VatWithhPRNRequest vatWithhPRNRequest){
+        if(vatWithhPRNRequest==null) throw new ValidationException("Request body cannot be null");
+
+        return null;
     }
 
 

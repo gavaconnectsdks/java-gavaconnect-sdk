@@ -3,18 +3,18 @@ package gavaconnectsdks.com.github.dtos.requests;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class VatExcemptionCheckerRequest {
-    @JsonProperty(value="VatExcemptionCertificate")
-    private String vatExcemptionCertificate;
+    @JsonProperty(value="VatExcemptionCertificateNo")
+    private String vatExcemptionCertificateNumber;
 
     private VatExcemptionCheckerRequest(Builder builder){
-        this.vatExcemptionCertificate=builder.vatExcemptioncertificate;
+        this.vatExcemptionCertificateNumber=builder.vatExcemptioncertificateNumber;
     }
 
     private static class Builder{
-        private String vatExcemptioncertificate;
+        private String vatExcemptioncertificateNumber;
 
-        public Builder setVatExcemptioncertificate(String vatExcemptioncertificate) {
-            this.vatExcemptioncertificate = vatExcemptioncertificate;
+        public Builder setVatExcemptioncertificate(String vatExcemptioncertificateNumber) {
+            this.vatExcemptioncertificateNumber = vatExcemptioncertificateNumber;
             return this;
         }
         
@@ -24,8 +24,8 @@ public class VatExcemptionCheckerRequest {
         
     }
 
-    public String getVatExcemptionCertificate() {
-        return this.vatExcemptionCertificate;
+    public String getVatExcemptionCertificateNumber() {
+        return this.vatExcemptionCertificateNumber;
     }
 
     public static Builder builder(){

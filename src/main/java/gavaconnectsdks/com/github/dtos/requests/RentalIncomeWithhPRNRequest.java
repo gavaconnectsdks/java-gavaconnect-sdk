@@ -1,11 +1,13 @@
 package gavaconnectsdks.com.github.dtos.requests;
 
+import java.util.List;
+
 import gavaconnectsdks.com.github.dtos.PRNRequestHeader;
 import gavaconnectsdks.com.github.dtos.RentalIncomeWithhDetails;
 
 public class RentalIncomeWithhPRNRequest {
     private PRNRequestHeader transactionHeader;
-    private RentalIncomeWithhDetails transactionDetails;
+    private List<RentalIncomeWithhDetails> transactionDetails;
 
     private RentalIncomeWithhPRNRequest(Builder builder){
         this.transactionDetails=builder.transactionDetails;
@@ -14,9 +16,9 @@ public class RentalIncomeWithhPRNRequest {
 
     private static class Builder{
         PRNRequestHeader transactionHeader;
-        RentalIncomeWithhDetails transactionDetails;
+        List<RentalIncomeWithhDetails> transactionDetails;
 
-        public Builder TransactionDetails(RentalIncomeWithhDetails transactionDetails) {
+        public Builder TransactionDetails(List<RentalIncomeWithhDetails> transactionDetails) {
             this.transactionDetails = transactionDetails;
             return this;
         }
@@ -31,7 +33,7 @@ public class RentalIncomeWithhPRNRequest {
         }
     }
 
-    public RentalIncomeWithhDetails getTransactionDetails() {
+    public List<RentalIncomeWithhDetails> getTransactionDetails() {
         return this.transactionDetails;
     }
 
