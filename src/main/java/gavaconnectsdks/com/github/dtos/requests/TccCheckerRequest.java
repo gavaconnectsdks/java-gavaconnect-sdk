@@ -1,13 +1,14 @@
 package gavaconnectsdks.com.github.dtos.requests;
 
+import gavaconnectsdks.com.github.exceptions.ValidationException;
 import gavaconnectsdks.com.github.utils.annotations.Pin;
 
-public class TccCheckerrequest {
+public class TccCheckerRequest {
     @Pin
     private final String kraPIN;
     private  final String tccNumber;
 
-    private TccCheckerrequest(Builder builder){
+    private TccCheckerRequest(Builder builder){
         this.kraPIN=builder.kraPIN;
         this.tccNumber=builder.tccNumber;
     }
@@ -27,8 +28,14 @@ public class TccCheckerrequest {
             return this;
         }
 
-        public TccCheckerrequest build(){
-            return new TccCheckerrequest(this);
+        public TccCheckerRequest build(){
+            if (this.kraPIN==null) {
+                throw new ValidationException("kraPIN is required");
+            }
+            if (this.tccNumber==null) {
+                throw new ValidationException("tccNumber is required");
+            }
+            return new TccCheckerRequest(this);
         }
         
     }

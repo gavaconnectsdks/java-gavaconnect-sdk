@@ -2,6 +2,8 @@ package gavaconnectsdks.com.github.dtos;
 
 import java.time.LocalDateTime;
 
+import gavaconnectsdks.com.github.exceptions.ValidationException;
+
 public class VatWithhDetails {
     private String withholdeePin;
     private String invoiceNo;
@@ -23,9 +25,9 @@ public class VatWithhDetails {
         private String withholdeePin;
         private String invoiceNo;
         private LocalDateTime paymentDate;
-        private float grossAmount;
-        private float taxRate;
-        private float taxAmount;
+        private Float grossAmount;
+        private Float taxRate;
+        private Float taxAmount;
 
       
         public Builder grossAmount(float grossAmount) {
@@ -54,6 +56,21 @@ public class VatWithhDetails {
         }
 
         public VatWithhDetails build(){
+            if (this.invoiceNo==null) {
+                throw  new ValidationException("invoiceNo in vatWithhDetails is required");
+            }
+            if (this.paymentDate==null) {
+                throw  new ValidationException("paymentDate in vatWithhDetails  is required.");
+            }
+            if (this.grossAmount==null) {
+                throw  new ValidationException("grossAmount in vatWithhDetails  is required.");
+            }
+            if (this.taxRate==null) {
+                throw new ValidationException("taxRate in vatWithhDetails  is required.");
+            }
+            if (this.taxAmount==null) {
+                throw new ValidationException("taxAmount in vatWithhDetails  is required.");
+            }
             return new VatWithhDetails(this);
         }
 

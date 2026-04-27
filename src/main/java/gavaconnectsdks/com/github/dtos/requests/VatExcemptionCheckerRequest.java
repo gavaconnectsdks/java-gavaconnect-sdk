@@ -2,6 +2,8 @@ package gavaconnectsdks.com.github.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import gavaconnectsdks.com.github.exceptions.ValidationException;
+
 public class VatExcemptionCheckerRequest {
     @JsonProperty(value="VatExcemptionCertificateNo")
     private final String vatExcemptionCertificateNumber;
@@ -19,6 +21,9 @@ public class VatExcemptionCheckerRequest {
         }
         
         public VatExcemptionCheckerRequest build(){
+            if (this.vatExcemptioncertificateNumber==null) {
+                throw new ValidationException("vatExcemptioncertificateNumber is required");
+            }
             return new VatExcemptionCheckerRequest(this);
         }
         

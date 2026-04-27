@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import gavaconnectsdks.com.github.exceptions.ValidationException;
 import gavaconnectsdks.com.github.utils.annotations.Adult;
 import gavaconnectsdks.com.github.utils.annotations.CountryCode;
 import gavaconnectsdks.com.github.utils.annotations.Email;
@@ -50,7 +51,7 @@ public class PinRegistrationRequest {
         private LocalDate dateOfBirth;
         private String mobileNumber;
         private String emailAddress;
-        private boolean  isPinWithObligation;
+        private Boolean  isPinWithObligation;
 
         public Builder dateOfBirth(LocalDate dateOfBirth) {
             this.dateOfBirth = dateOfBirth;
@@ -83,6 +84,24 @@ public class PinRegistrationRequest {
         }
 
         public PinRegistrationRequest build(){
+            if (this.taxPayerType==null) {
+                throw new ValidationException("taxPayerType is required");
+            }
+            if (this.identificationNumber==null){
+                throw  new ValidationException("identificationNumber is required");
+            }
+            if (this.dateOfBirth==null) {
+                throw  new ValidationException("dateOfBirth is required");
+            }
+            if (this.mobileNumber==null) {
+                throw new ValidationException("mobileNumber is required");
+            }
+            if (this.emailAddress==null) {
+                throw new ValidationException("emailAddress is required");
+            }
+            if (this.isPinWithObligation==null) {
+                throw new ValidationException("isPinWithObligation is required");
+            }
             return new PinRegistrationRequest(this);
         }
         

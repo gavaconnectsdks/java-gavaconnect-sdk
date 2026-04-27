@@ -1,6 +1,6 @@
 ---
 
-# GavaConnect Java SDK
+# GavaConnect Java SDK (Not Complete)
 
 [![Java Version](https://img.shields.io/badge/Java-11%2B-blue)](https://www.oracle.com/java/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
@@ -117,4 +117,4 @@ The SDK manages security headers internally. When you call any service, `Auth.ja
 5. Open a Pull Request.
 
 ---
-*Maintained by the GavaConnect SDK Team.*
+*Maintained by the Marcus Mosaya.*

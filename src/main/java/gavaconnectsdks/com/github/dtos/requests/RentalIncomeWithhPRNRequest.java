@@ -4,6 +4,7 @@ import java.util.List;
 
 import gavaconnectsdks.com.github.dtos.PRNRequestHeader;
 import gavaconnectsdks.com.github.dtos.RentalIncomeWithhDetails;
+import gavaconnectsdks.com.github.exceptions.ValidationException;
 
 public class RentalIncomeWithhPRNRequest {
     private final PRNRequestHeader transactionHeader;
@@ -15,8 +16,8 @@ public class RentalIncomeWithhPRNRequest {
     }
 
     private static class Builder{
-        PRNRequestHeader transactionHeader;
-        List<RentalIncomeWithhDetails> transactionDetails;
+        private PRNRequestHeader transactionHeader;
+        private List<RentalIncomeWithhDetails> transactionDetails;
 
         public Builder TransactionDetails(List<RentalIncomeWithhDetails> transactionDetails) {
             this.transactionDetails = transactionDetails;
@@ -29,6 +30,12 @@ public class RentalIncomeWithhPRNRequest {
         }
 
         public RentalIncomeWithhPRNRequest build(){
+            if (this.transactionHeader==null) {
+                throw new ValidationException("transactionHeader is required.");
+            }
+            if(this.transactionDetails==null){
+                throw new ValidationException("transactionDetails is required.");
+            }
             return new RentalIncomeWithhPRNRequest(this);
         }
     }

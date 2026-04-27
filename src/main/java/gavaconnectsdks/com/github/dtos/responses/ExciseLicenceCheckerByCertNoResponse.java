@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import gavaconnectsdks.com.github.dtos.ExciseLicenseDetail2;
 
-public class ExciseLinenceCheckerByCertNoresponse {
+public class ExciseLicenceCheckerByCertNoResponse {
     @JsonProperty(value="Status")
     private String status;
 

@@ -2,6 +2,8 @@ package gavaconnectsdks.com.github.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import gavaconnectsdks.com.github.exceptions.ValidationException;
+
 public class ExciseLicenceCheckerByCertNoRequest {
     @JsonProperty(value="ExciseLicenceNo")
     private final String exciseLicenceNumber;
@@ -19,6 +21,9 @@ public class ExciseLicenceCheckerByCertNoRequest {
         }
 
         public  ExciseLicenceCheckerByCertNoRequest build(){
+            if(this.exciseLicenceNumber==null){
+                throw new ValidationException("exciseLicnceNumber is required");
+            }
             return  new ExciseLicenceCheckerByCertNoRequest(this);
         }
         

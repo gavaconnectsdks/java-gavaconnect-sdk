@@ -1,5 +1,6 @@
 package gavaconnectsdks.com.github.dtos.requests;
 
+import gavaconnectsdks.com.github.exceptions.ValidationException;
 import gavaconnectsdks.com.github.utils.annotations.Pin;
 
 public class ITExceptionCheckerRequest {
@@ -19,6 +20,9 @@ public class ITExceptionCheckerRequest {
         }
 
         public ITExceptionCheckerRequest build(){
+            if(this.pin==null){
+                throw new ValidationException("pin is required.");
+            }
             return new ITExceptionCheckerRequest(this);
         }
     }

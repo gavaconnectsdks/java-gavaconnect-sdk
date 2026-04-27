@@ -4,6 +4,7 @@ import java.util.List;
 
 import gavaconnectsdks.com.github.dtos.PRNRequestHeader;
 import gavaconnectsdks.com.github.dtos.VatWithhDetails;
+import gavaconnectsdks.com.github.exceptions.ValidationException;
 
 public class VatWithhPRNRequest {
     private final PRNRequestHeader transactionHeader;
@@ -27,6 +28,12 @@ public class VatWithhPRNRequest {
         }
 
         public VatWithhPRNRequest build(){
+            if (this.transactionHeader==null) {
+                throw new ValidationException("transactionHeader is required");
+            }
+            if (this.transactionDetails==null) {
+                throw new ValidationException("transactionDetails is required");
+            }
             return new VatWithhPRNRequest(this);
         }
     }

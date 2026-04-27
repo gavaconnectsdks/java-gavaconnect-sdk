@@ -1,5 +1,6 @@
 package gavaconnectsdks.com.github.dtos.requests;
 
+import gavaconnectsdks.com.github.exceptions.ValidationException;
 import gavaconnectsdks.com.github.utils.annotations.Pin;
 
 public class KnowKraOfficeRequest {
@@ -19,6 +20,9 @@ public class KnowKraOfficeRequest {
             return this;
         }
         public KnowKraOfficeRequest build(){
+            if(this.kraPin==null){
+                throw new ValidationException("kraPin is required");
+            }
             return new KnowKraOfficeRequest(this);
         }
 

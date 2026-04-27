@@ -2,6 +2,7 @@ package gavaconnectsdks.com.github.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import gavaconnectsdks.com.github.exceptions.ValidationException;
 import gavaconnectsdks.com.github.utils.annotations.CustomPattern;
 import gavaconnectsdks.com.github.utils.annotations.ObligationCode;
 import gavaconnectsdks.com.github.utils.annotations.Pin;
@@ -66,6 +67,18 @@ public class NilReturnRequest {
         }
 
         public NilReturnRequest build(){
+            if(this.taxpayerPIN==null){
+                throw new ValidationException("taxpayerPIN is required");
+            }
+            if (this.obligationCode==null) {
+                throw new ValidationException("obligationCode is required");
+            }
+            if(this.month==null){
+                throw  new ValidationException("month is required");
+            }
+            if(this.year==null){
+                throw new ValidationException("year is required");
+            }
             return  new NilReturnRequest(this);
         }
     }

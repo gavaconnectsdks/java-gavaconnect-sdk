@@ -3,6 +3,7 @@ package gavaconnectsdks.com.github.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import gavaconnectsdks.com.github.exceptions.ValidationException;
 import gavaconnectsdks.com.github.utils.annotations.Pin;
 
 public class ImportCertCheckerByPinRequest {
@@ -23,6 +24,9 @@ public class ImportCertCheckerByPinRequest {
         }
 
         public ImportCertCheckerByPinRequest build(){
+            if(this.pinNo==null){
+                throw new ValidationException("pinNo is required");
+            }
             return new ImportCertCheckerByPinRequest(this);
         }
         

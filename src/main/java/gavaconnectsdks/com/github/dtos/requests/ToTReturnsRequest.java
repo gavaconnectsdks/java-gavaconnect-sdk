@@ -2,6 +2,7 @@ package gavaconnectsdks.com.github.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import gavaconnectsdks.com.github.exceptions.ValidationException;
 import gavaconnectsdks.com.github.utils.annotations.CustomPattern;
 import gavaconnectsdks.com.github.utils.annotations.Pin;
 
@@ -36,7 +37,8 @@ public class ToTReturnsRequest {
 
         private String year;
 
-        private float grossTurnOver;
+        private Float grossTurnOver;
+
 
         public Builder grossTurnOver(float grossTurnOver) {
             this.grossTurnOver = grossTurnOver;
@@ -59,6 +61,18 @@ public class ToTReturnsRequest {
         }
 
         public ToTReturnsRequest build(){
+            if (this.taxpayerPIN==null) {
+                throw new  ValidationException("taxpayerPIN is required.");
+            }
+            if (this.month==null) {
+                throw new ValidationException("month is required.");
+            }
+            if (this.year==null) {
+                throw  new ValidationException("year is required.");
+            }
+            if (this.grossTurnOver==null) {
+                throw new ValidationException("grossTurnOver is required.");
+            }
             return new ToTReturnsRequest(this);
         }
 

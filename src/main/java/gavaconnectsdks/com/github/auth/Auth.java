@@ -1,14 +1,13 @@
 package gavaconnectsdks.com.github.auth;
 
+import java.time.Instant;
+import java.util.Base64;
+import java.util.Map;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import  com.fasterxml.jackson.databind.ObjectMapper;
 
 import gavaconnectsdks.com.github.config.Environment;
-
-import java.util.Map;
-import  java.time.Instant;
-import java.util.Base64;
-
 import gavaconnectsdks.com.github.http.GavaHttpClient;
 
 public class Auth{
@@ -27,11 +26,11 @@ public class Auth{
             this.httpClient=httpClient;
         }
 
-        public String getAuthorizationBearerHeader() throws JsonProcessingException {
+        public synchronized String getAuthorizationBearerHeader() throws JsonProcessingException {
             return objectMapper.writeValueAsString(Map.ofEntries(Map.entry("Authorization", "Bearer "+this.getAccessToken())));   
         }
 
-        public String getAccessToken(){
+        public synchronized String getAccessToken(){
 
             try{
 

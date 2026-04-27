@@ -72,19 +72,19 @@ public class NilReturnTaxPayerDetails {
     }
 
     public String getObligationCode() {
-        return ObligationCode;
+        return this.ObligationCode;
     }
 
     public String getMonth() {
-        return Month;
+        return this.Month;
     }
 
     public String getTaxPayerPIN() {
-        return TaxPayerPIN;
+        return this.TaxPayerPIN;
     }
 
     public String getYear() {
-        return Year;
+        return this.Year;
     }
 
 

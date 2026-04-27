@@ -18,7 +18,7 @@ public class TccApplicationService extends IService {
         this.endpoint="/application/v1/tcc";
     }
 
-    public TccApplicationResponse response(TccApplicationRequest request) throws IOException  , InterruptedException , IllegalAccessException{
+    public TccApplicationResponse request(TccApplicationRequest request) throws IOException  , InterruptedException , IllegalAccessException{
          try{
             ValidatorEngine.validate(request);
             String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();

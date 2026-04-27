@@ -2,6 +2,8 @@ package gavaconnectsdks.com.github.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import gavaconnectsdks.com.github.exceptions.ValidationException;
+
 public class CustDecStatusCheckerRequest {
 
     @JsonProperty("DeclarationNo")
@@ -17,7 +19,10 @@ public class CustDecStatusCheckerRequest {
             this.declarationNumber = declarationNumber;
             return this;
         }
-        public CustDecStatusCheckerRequest build (){
+        public CustDecStatusCheckerRequest build () {
+            if(this.declarationNumber==null){
+                throw new ValidationException("declarationNumber is required");
+            }
             return new CustDecStatusCheckerRequest(this);
         }
         
