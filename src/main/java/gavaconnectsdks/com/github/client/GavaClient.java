@@ -76,7 +76,7 @@ public class GavaClient {
     public StationFacade stations(){
         return new StationFacade();
     }
-    public WithholdingPRNGeneratorFacade prnGenerator(){
+    public WithholdingPRNGeneratorFacade withholdingPrnGenerator(){
         return  new WithholdingPRNGeneratorFacade();
     }
 
