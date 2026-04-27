@@ -73,8 +73,8 @@ System.out.println("Status: " + response.getStatus());
 import gavaconnectsdks.com.github.dtos.requests.TccApplicationRequest;
 
 TccApplicationRequest tccRequest = TccApplicationRequest.builder()
-    .pin("A00XXXXXXX")
-    .reason("Government Tender")
+    .taxPayerPin("A00XXXXXXX")
+    .reasonForTaxComplianceCertificate("Government Tender")
     .build();
 
 client.applications().applyTaxComplianceCertificate(tccRequest);
@@ -88,10 +88,10 @@ The SDK is organized into several facades to keep the entry point clean:
 
 | Facade | Description |
 | :--- | :--- |
-| `checkers()` | Verify KRA PINs, TCC status, Excise licenses, and Invoices. |
+| `checkers()` | Verify or check KRA PINs, TCC status, Excise licenses, and Invoices. |
 | `applications()` | Handle TCC and other government certificate applications. |
 | `registrations()` | Manage PIN registrations and entity onboarding. |
-| `prnGenerator()` | Generate Payment Registration Numbers (PRN) for various tax obligations. |
+| `withholdingPRNGenerator()` | Generate Payment Registration Numbers (PRN) for various tax obligations. |
 | `stations()` | Lookup KRA stations and office details. |
 
 ---
