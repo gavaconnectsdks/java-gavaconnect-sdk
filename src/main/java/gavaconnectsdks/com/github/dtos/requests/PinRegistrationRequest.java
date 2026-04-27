@@ -16,24 +16,24 @@ public class PinRegistrationRequest {
     @CountryCode
     @JsonProperty("TaxPayerType")
     
-    private String taxPayerType;
+    private final String taxPayerType;
     @IdentificationNumber
     @JsonProperty("IdentificationNumber")
-    private String identificationNumber;
+    private final String identificationNumber;
 
     @Adult
     @JsonProperty("DateOfBirth")
     @JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd/MM/yyyy")
-    private LocalDate dateOfBirth;
+    private final LocalDate dateOfBirth;
     @MobileNumber
     @JsonProperty("MobileNumber")
-    private String mobileNumber;
+    private final String mobileNumber;
     @Email
     @JsonProperty("EmailAddress")
-    private String emailAddress;
+    private final String emailAddress;
 
     @JsonProperty("IsPinWithNoOblig")
-    private String isPinWithNoObligation;
+    private final String isPinWithNoObligation;
 
     private  PinRegistrationRequest(Builder builder){
         this.dateOfBirth=builder.dateOfBirth;

@@ -8,11 +8,11 @@ import gavaconnectsdks.com.github.utils.annotations.Pin;
 public class TccApplicationRequest {
     @Pin
     @JsonProperty("TaxpayerPIN")
-    String taxpayerPIN;
+    private final String taxpayerPIN;
 
     @Length(max=400)
     @JsonProperty("ReasonForTCC")
-    String reasonForTaxComplianceCertificate;
+    private final String reasonForTaxComplianceCertificate;
 
     private TccApplicationRequest(Builder builder){
         this.reasonForTaxComplianceCertificate=builder.reasonForTaxComplianceCertificate;

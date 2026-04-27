@@ -11,20 +11,20 @@ public class NilReturnRequest {
 
     @Pin(message="Invalid TaxPayerPin")
     @JsonProperty("TaxpayerPIN")
-    private String taxpayerPIN;
+    private final  String taxpayerPIN;
 
     @JsonProperty("ObligationCode")
     @ObligationCode(message="Invalid ObligationCode")
-    private String obligationCode;
+    private final String obligationCode;
 
 
     @CustomPattern(pattern="^\\d{2}$")
     @JsonProperty("Month")
-    private String month;
+    private final String month;
     
     @CustomPattern(pattern="^\\d{4}$")
     @JsonProperty("Year")
-    private String year;
+    private final String year;
 
 
     private NilReturnRequest(Builder builder){

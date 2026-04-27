@@ -8,7 +8,7 @@ import gavaconnectsdks.com.github.utils.annotations.Pin;
 public class ImportCertCheckerByPinRequest {
     @Pin
     @JsonProperty(value="pin_no")
-    private String pinNo;
+    private final String pinNo;
 
     private ImportCertCheckerByPinRequest (Builder builder){
         this.pinNo=builder.pinNo;

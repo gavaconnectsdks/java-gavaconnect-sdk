@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.fasterxml.jackson.databind.JavaType;
 
-import gavaconnectsdks.com.github.client.GavaClient;
+import gavaconnectsdks.com.github.auth.Auth;
 import gavaconnectsdks.com.github.config.GavaConfig;
 import gavaconnectsdks.com.github.dtos.ResponseWrapper;
 import gavaconnectsdks.com.github.dtos.requests.NilReturnRequest;
@@ -13,7 +13,7 @@ import gavaconnectsdks.com.github.dtos.responses.NilReturnResponse;
 import gavaconnectsdks.com.github.utils.engine.ValidatorEngine;
 
 public class NilReturnService extends  IService {
-    public NilReturnService(GavaConfig config,GavaClient.Auth auth){
+    public NilReturnService(GavaConfig config,Auth auth){
         super(config,auth);
         this.endpoint="/dtd/return/v1/nil";
     }

@@ -2,14 +2,14 @@ package gavaconnectsdks.com.github.service;
 
 import java.io.IOException;
 
-import gavaconnectsdks.com.github.client.GavaClient;
+import gavaconnectsdks.com.github.auth.Auth;
 import gavaconnectsdks.com.github.config.GavaConfig;
 import gavaconnectsdks.com.github.dtos.requests.FetchTaxpayerObligationRequest;
 import gavaconnectsdks.com.github.dtos.responses.FetchTaxpayerObligationresponse;
 import gavaconnectsdks.com.github.utils.engine.ValidatorEngine;
 
 public class TaxPayerObligationService extends IService {
-    public TaxPayerObligationService(GavaConfig config,GavaClient.Auth auth){
+    public TaxPayerObligationService(GavaConfig config,Auth auth){
         super(config, auth);
         this.endpoint="/dtd/checker/v1/obligation";
     }

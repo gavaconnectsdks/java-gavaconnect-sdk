@@ -7,7 +7,7 @@ import gavaconnectsdks.com.github.utils.annotations.Pin;
 public class ExciseLicenseCheckerByPinRequest {
     @Pin
     @JsonProperty(value="PINNo")
-    private String pinNo;
+    private final String pinNo;
 
     private ExciseLicenseCheckerByPinRequest(Builder builder){
         this.pinNo=builder.pinNo;

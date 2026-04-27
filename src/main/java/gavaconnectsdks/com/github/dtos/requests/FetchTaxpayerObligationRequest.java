@@ -7,7 +7,7 @@ import gavaconnectsdks.com.github.utils.annotations.Pin;
 public class FetchTaxpayerObligationRequest {
     @Pin
     @JsonProperty("taxPayerPin")
-    String taxPayerPIN;
+    private final String taxPayerPIN;
 
 
     private FetchTaxpayerObligationRequest(Builder builder){

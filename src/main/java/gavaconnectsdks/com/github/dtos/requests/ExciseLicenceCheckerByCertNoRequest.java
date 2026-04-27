@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ExciseLicenceCheckerByCertNoRequest {
     @JsonProperty(value="ExciseLicenceNo")
-    private String exciseLicenceNumber;
+    private final String exciseLicenceNumber;
 
     private ExciseLicenceCheckerByCertNoRequest(Builder builder){
         this.exciseLicenceNumber=builder.exciseLicenceNumber;

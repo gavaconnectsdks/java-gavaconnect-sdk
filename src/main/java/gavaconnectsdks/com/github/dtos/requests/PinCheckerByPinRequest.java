@@ -7,7 +7,7 @@ import gavaconnectsdks.com.github.utils.annotations.Pin;
 public class PinCheckerByPinRequest {
     @Pin
     @JsonProperty("KRAPIN")
-    private String kraPin;
+    private final String kraPin;
 
     private PinCheckerByPinRequest(Builder builder){
         this.kraPin=builder.kraPin;

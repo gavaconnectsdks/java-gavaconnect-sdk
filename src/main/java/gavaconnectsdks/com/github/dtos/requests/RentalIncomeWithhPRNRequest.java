@@ -6,8 +6,8 @@ import gavaconnectsdks.com.github.dtos.PRNRequestHeader;
 import gavaconnectsdks.com.github.dtos.RentalIncomeWithhDetails;
 
 public class RentalIncomeWithhPRNRequest {
-    private PRNRequestHeader transactionHeader;
-    private List<RentalIncomeWithhDetails> transactionDetails;
+    private final PRNRequestHeader transactionHeader;
+    private final List<RentalIncomeWithhDetails> transactionDetails;
 
     private RentalIncomeWithhPRNRequest(Builder builder){
         this.transactionDetails=builder.transactionDetails;

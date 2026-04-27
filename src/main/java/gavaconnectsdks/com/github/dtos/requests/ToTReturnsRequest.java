@@ -8,18 +8,18 @@ import gavaconnectsdks.com.github.utils.annotations.Pin;
 public class ToTReturnsRequest {
     @Pin
     @JsonProperty("TaxpayerPIN")
-    private String taxpayerPIN;
+    private final String taxpayerPIN;
 
     @CustomPattern(pattern="^\\d{2}$")
     @JsonProperty("Month")
-    private String month;
+    private final String month;
 
     @CustomPattern(pattern="^\\d{2}$")
     @JsonProperty("Year")
-    private String year;
+    private final String year;
 
     @JsonProperty("GrossTurnOver")
-    private float grossTurnOver;
+    private final float grossTurnOver;
 
 
     private ToTReturnsRequest(Builder builder){

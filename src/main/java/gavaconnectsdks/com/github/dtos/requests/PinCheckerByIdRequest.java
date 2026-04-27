@@ -6,10 +6,10 @@ import gavaconnectsdks.com.github.utils.enums.TaxpayerTypeEnum;
 
 public class PinCheckerByIdRequest {
     @JsonProperty("TaxpayerType")
-    private String taxpayerType;
+    private final String taxpayerType;
 
     @JsonProperty("TaxpayerID")
-    private String taxpayerId;
+    private final String taxpayerId;
 
     private PinCheckerByIdRequest(Builder builder){
         this.taxpayerId=builder.taxpayerId.getTaxpayerType();

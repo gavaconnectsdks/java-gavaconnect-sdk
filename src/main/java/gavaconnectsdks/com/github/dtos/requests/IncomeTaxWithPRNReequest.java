@@ -6,8 +6,8 @@ import gavaconnectsdks.com.github.dtos.IncomeTaxWithhDetails;
 import gavaconnectsdks.com.github.dtos.PRNRequestHeader;
 
 public class IncomeTaxWithPRNReequest {
-    private PRNRequestHeader transactionHeader;
-    private List<IncomeTaxWithhDetails> transactionDetails;
+    private final PRNRequestHeader transactionHeader;
+    private final List<IncomeTaxWithhDetails> transactionDetails;
 
 
     public IncomeTaxWithPRNReequest(Builder builder){

@@ -2,14 +2,14 @@ package gavaconnectsdks.com.github.service;
 
 import java.io.IOException;
 
-import gavaconnectsdks.com.github.client.GavaClient;
+import gavaconnectsdks.com.github.auth.Auth;
 import gavaconnectsdks.com.github.config.GavaConfig;
 import gavaconnectsdks.com.github.dtos.requests.CustDecStatusCheckerRequest;
 import gavaconnectsdks.com.github.dtos.responses.CustDecStatusCheckerResponse;
 import gavaconnectsdks.com.github.utils.engine.ValidatorEngine;
 
 public class CustDecStatusCheckerService extends IService {
-    public CustDecStatusCheckerService(GavaConfig config,GavaClient.Auth auth){
+    public CustDecStatusCheckerService(GavaConfig config,Auth auth){
         super(config, auth);
         this.endpoint="/checker/v1/simple/declaration";
     }

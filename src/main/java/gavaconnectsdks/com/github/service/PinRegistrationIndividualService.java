@@ -2,7 +2,7 @@ package gavaconnectsdks.com.github.service;
 
 import java.io.IOException;
 
-import gavaconnectsdks.com.github.client.GavaClient;
+import gavaconnectsdks.com.github.auth.Auth;
 import gavaconnectsdks.com.github.config.GavaConfig;
 import gavaconnectsdks.com.github.dtos.requests.PinRegistrationRequest;
 import gavaconnectsdks.com.github.dtos.requests.TaxpayerDetailsWrapper;
@@ -11,7 +11,7 @@ import gavaconnectsdks.com.github.utils.engine.ValidatorEngine;
 
 public class PinRegistrationIndividualService extends IService {
 
-    public PinRegistrationIndividualService(GavaConfig config,GavaClient.Auth auth){
+    public PinRegistrationIndividualService(GavaConfig config,Auth auth){
         super(config, auth);
         this.endpoint="/v1/generate/pin";
     }

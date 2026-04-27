@@ -6,8 +6,8 @@ import gavaconnectsdks.com.github.dtos.PRNRequestHeader;
 import gavaconnectsdks.com.github.dtos.VatWithhDetails;
 
 public class VatWithhPRNRequest {
-    private PRNRequestHeader transactionHeader;
-    private List<VatWithhDetails> transactionDetails;
+    private final PRNRequestHeader transactionHeader;
+    private final List<VatWithhDetails> transactionDetails;
     
     private VatWithhPRNRequest(Builder builder){
         this.transactionDetails=builder.transactionDetails;

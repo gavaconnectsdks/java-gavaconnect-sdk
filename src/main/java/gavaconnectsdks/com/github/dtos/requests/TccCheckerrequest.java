@@ -4,8 +4,8 @@ import gavaconnectsdks.com.github.utils.annotations.Pin;
 
 public class TccCheckerrequest {
     @Pin
-    private String kraPIN;
-    private  String tccNumber;
+    private final String kraPIN;
+    private  final String tccNumber;
 
     private TccCheckerrequest(Builder builder){
         this.kraPIN=builder.kraPIN;

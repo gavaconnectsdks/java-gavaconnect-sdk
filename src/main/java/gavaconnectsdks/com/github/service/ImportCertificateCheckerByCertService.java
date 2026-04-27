@@ -2,7 +2,7 @@ package gavaconnectsdks.com.github.service;
 
 import java.io.IOException;
 
-import gavaconnectsdks.com.github.client.GavaClient;
+import gavaconnectsdks.com.github.auth.Auth;
 import gavaconnectsdks.com.github.config.GavaConfig;
 import gavaconnectsdks.com.github.dtos.requests.ImportCertificateCheckerRequest;
 import gavaconnectsdks.com.github.dtos.responses.ImportCertificateCheckerResponse;
@@ -10,7 +10,7 @@ import gavaconnectsdks.com.github.utils.engine.ValidatorEngine;
 
 public class ImportCertificateCheckerByCertService extends IService {
 
-    public ImportCertificateCheckerByCertService(GavaConfig config,GavaClient.Auth auth){
+    public ImportCertificateCheckerByCertService(GavaConfig config,Auth auth){
         super(config, auth);
         this.endpoint="/cbc/checker/v1/importcertificate/num";
     }

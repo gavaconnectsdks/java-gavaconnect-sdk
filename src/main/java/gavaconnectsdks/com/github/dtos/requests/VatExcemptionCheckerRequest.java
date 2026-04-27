@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class VatExcemptionCheckerRequest {
     @JsonProperty(value="VatExcemptionCertificateNo")
-    private String vatExcemptionCertificateNumber;
+    private final String vatExcemptionCertificateNumber;
 
     private VatExcemptionCheckerRequest(Builder builder){
         this.vatExcemptionCertificateNumber=builder.vatExcemptioncertificateNumber;

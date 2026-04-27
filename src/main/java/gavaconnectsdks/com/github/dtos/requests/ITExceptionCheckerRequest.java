@@ -4,7 +4,7 @@ import gavaconnectsdks.com.github.utils.annotations.Pin;
 
 public class ITExceptionCheckerRequest {
     @Pin
-    private String pin;
+    private final String pin;
     private ITExceptionCheckerRequest(Builder builder){
         this.pin=builder.pin;
     }

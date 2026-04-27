@@ -4,7 +4,7 @@ import gavaconnectsdks.com.github.utils.annotations.Pin;
 
 public class KnowKraOfficeRequest {
     @Pin
-    private String kraPin;
+    private final String kraPin;
 
     private KnowKraOfficeRequest(Builder builder){
         this.kraPin=builder.kraPin;

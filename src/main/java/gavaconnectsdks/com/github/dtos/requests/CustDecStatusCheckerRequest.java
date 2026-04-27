@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class CustDecStatusCheckerRequest {
 
     @JsonProperty("DeclarationNo")
-    private String declarationNumber;
+    private final String declarationNumber;
 
     private CustDecStatusCheckerRequest(Builder builder){
         this.declarationNumber=builder.declarationNumber;

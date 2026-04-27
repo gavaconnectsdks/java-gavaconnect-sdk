@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ImportCertificateCheckerRequest {
     @JsonProperty(value="certificate_no")
-    private String certificateNumber;
+    private final String certificateNumber;
 
     private ImportCertificateCheckerRequest(Builder builder){
         this.certificateNumber=builder.certificateNumber;

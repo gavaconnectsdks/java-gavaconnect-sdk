@@ -2,14 +2,14 @@ package gavaconnectsdks.com.github.service;
 
 import java.io.IOException;
 
-import gavaconnectsdks.com.github.client.GavaClient;
+import gavaconnectsdks.com.github.auth.Auth;
 import gavaconnectsdks.com.github.config.GavaConfig;
 import gavaconnectsdks.com.github.dtos.requests.TccCheckerrequest;
 import gavaconnectsdks.com.github.dtos.responses.TccCheckerResponse;
 import gavaconnectsdks.com.github.utils.engine.ValidatorEngine;
 
 public class TccCheckerService extends IService {
-    public TccCheckerService (GavaConfig config,GavaClient.Auth auth){
+    public TccCheckerService (GavaConfig config,Auth auth){
         super(config, auth);
         this.endpoint="/v1/kra-tcc/validate";
     }

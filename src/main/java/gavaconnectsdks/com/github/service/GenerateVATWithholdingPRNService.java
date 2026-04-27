@@ -2,7 +2,7 @@ package gavaconnectsdks.com.github.service;
 
 import java.io.IOException;
 
-import gavaconnectsdks.com.github.client.GavaClient;
+import gavaconnectsdks.com.github.auth.Auth;
 import gavaconnectsdks.com.github.config.GavaConfig;
 import gavaconnectsdks.com.github.dtos.requests.VatWithhPRNRequest;
 import gavaconnectsdks.com.github.dtos.responses.WithholdingPRNResponse;
@@ -10,7 +10,7 @@ import gavaconnectsdks.com.github.utils.engine.ValidatorEngine;
 
 public class GenerateVATWithholdingPRNService extends IService {
 
-    public GenerateVATWithholdingPRNService(GavaConfig config,GavaClient.Auth auth) {
+    public GenerateVATWithholdingPRNService(GavaConfig config,Auth auth) {
         super(config, auth);
         this.endpoint="/generate/v1/prn/whtvat";
     }
