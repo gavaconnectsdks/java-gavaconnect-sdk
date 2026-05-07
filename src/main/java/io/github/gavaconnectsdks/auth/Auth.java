@@ -27,7 +27,7 @@ public class Auth{
         }
 
         public synchronized String getAuthorizationBearerHeader() throws JsonProcessingException {
-            return objectMapper.writeValueAsString(Map.ofEntries(Map.entry("Authorization", "Bearer "+this.getAccessToken())));   
+            return this.getAccessToken();   
         }
 
         public synchronized String getAccessToken(){

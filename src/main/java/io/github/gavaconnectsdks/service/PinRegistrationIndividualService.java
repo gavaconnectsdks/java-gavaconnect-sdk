@@ -20,9 +20,8 @@ public class PinRegistrationIndividualService extends IService {
         try{
 
             ValidatorEngine.validate(request);
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
             TaxpayerDetailsWrapper<PinRegistrationRequest> taxpayerDetailsWrapper=new TaxpayerDetailsWrapper<>(request);
-            PinRegistrationResponse response=httpClient.post(path, taxpayerDetailsWrapper, PinRegistrationResponse.class, auth.getAuthorizationBearerHeader());
+            PinRegistrationResponse response=httpClient.post(this.endpoint, taxpayerDetailsWrapper, PinRegistrationResponse.class, auth.getAuthorizationBearerHeader());
             return response;
     }catch(IOException  |InterruptedException | IllegalAccessException e ){
         throw  e;

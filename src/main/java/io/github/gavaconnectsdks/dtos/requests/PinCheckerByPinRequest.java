@@ -14,7 +14,7 @@ public class PinCheckerByPinRequest {
         this.kraPin=builder.kraPin;
     }
 
-    private static class Builder{
+    public static class Builder{
         private String kraPin;
 
         public Builder KraPin(String kraPin) {

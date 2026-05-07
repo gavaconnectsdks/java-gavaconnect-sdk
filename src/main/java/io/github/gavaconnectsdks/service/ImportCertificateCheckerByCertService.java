@@ -19,8 +19,7 @@ public class ImportCertificateCheckerByCertService extends IService {
        try {
             ValidatorEngine.validate(request);
     
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
-            ImportCertificateCheckerResponse response=httpClient.post(path, request, ImportCertificateCheckerResponse.class, auth.getAuthorizationBearerHeader());
+            ImportCertificateCheckerResponse response=httpClient.post(this.endpoint, request, ImportCertificateCheckerResponse.class, auth.getAuthorizationBearerHeader());
             return response;  
         } catch (IllegalAccessException|IOException|InterruptedException  e) {
             throw e;

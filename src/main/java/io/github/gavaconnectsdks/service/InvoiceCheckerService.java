@@ -18,8 +18,7 @@ public class InvoiceCheckerService extends IService {
     public InvoiceCheckerResponse request(InvoiceCheckerRequest request)throws IllegalAccessException,IOException,InterruptedException  {
         try {
             ValidatorEngine.validate(request);
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
-            InvoiceCheckerResponse response=httpClient.post(path, request, InvoiceCheckerResponse.class, auth.getAuthorizationBearerHeader());
+            InvoiceCheckerResponse response=httpClient.post(this.endpoint, request, InvoiceCheckerResponse.class, auth.getAuthorizationBearerHeader());
             return response;  
         } catch (IllegalAccessException|IOException|InterruptedException  e) {
             throw e;

@@ -14,7 +14,7 @@ public class ExciseLicenseCheckerByPinRequest {
         this.pinNo=builder.pinNo;
     }
 
-    private static class Builder{
+    public static class Builder{
         @Pin
         private String pinNo;
 

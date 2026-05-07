@@ -20,8 +20,7 @@ public class ImportCertificateCheckerByPinService extends IService {
     public ImportCertCheckerByPinResponse request(ImportCertCheckerByPinRequest request) throws IllegalAccessException,IOException,InterruptedException {
        try {
             ValidatorEngine.validate(request);
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
-            ImportCertCheckerByPinResponse response=httpClient.post(path, request, ImportCertCheckerByPinResponse.class, auth.getAuthorizationBearerHeader());
+            ImportCertCheckerByPinResponse response=httpClient.post(this.endpoint, request, ImportCertCheckerByPinResponse.class, auth.getAuthorizationBearerHeader());
             return response;  
         } catch (IllegalAccessException|IOException|InterruptedException  e) {
             throw e;

@@ -17,8 +17,7 @@ public class CustDecStatusCheckerService extends IService {
     public CustDecStatusCheckerResponse request(CustDecStatusCheckerRequest request) throws IllegalAccessException,IOException,InterruptedException {
         try {
             ValidatorEngine.validate(request);
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
-            CustDecStatusCheckerResponse response=httpClient.post(path, request, CustDecStatusCheckerResponse.class, auth.getAuthorizationBearerHeader());
+            CustDecStatusCheckerResponse response=httpClient.post(this.endpoint, request, CustDecStatusCheckerResponse.class, auth.getAuthorizationBearerHeader());
             return response;  
         } catch (IllegalAccessException|IOException|InterruptedException  e) {
             throw e;

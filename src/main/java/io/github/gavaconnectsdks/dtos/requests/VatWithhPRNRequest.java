@@ -14,7 +14,7 @@ public class VatWithhPRNRequest {
         this.transactionDetails=builder.transactionDetails;
         this.transactionHeader=builder.transactionHeader;
     }
-    private static class Builder{
+    public static class Builder{
         private PRNRequestHeader transactionHeader;
         private List<VatWithhDetails> transactionDetails;
 

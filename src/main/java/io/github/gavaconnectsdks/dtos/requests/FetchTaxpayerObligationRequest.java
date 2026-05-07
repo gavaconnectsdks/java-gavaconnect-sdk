@@ -15,7 +15,7 @@ public class FetchTaxpayerObligationRequest {
             this.taxPayerPIN=builder.taxPayerPIN;
     }
 
-    private static class Builder{
+    public static class Builder{
         String taxPayerPIN;
 
         

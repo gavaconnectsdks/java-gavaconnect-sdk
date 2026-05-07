@@ -12,7 +12,7 @@ public class VatExcemptionCheckerRequest {
         this.vatExcemptionCertificateNumber=builder.vatExcemptioncertificateNumber;
     }
 
-    private static class Builder{
+    public static class Builder{
         private String vatExcemptioncertificateNumber;
 
         public Builder setVatExcemptioncertificate(String vatExcemptioncertificateNumber) {

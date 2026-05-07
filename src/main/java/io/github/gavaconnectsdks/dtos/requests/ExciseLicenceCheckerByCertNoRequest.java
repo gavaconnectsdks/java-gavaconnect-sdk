@@ -12,7 +12,7 @@ public class ExciseLicenceCheckerByCertNoRequest {
         this.exciseLicenceNumber=builder.exciseLicenceNumber;
     }
 
-    private static class Builder{
+    public static class Builder{
         private String exciseLicenceNumber;
 
         public Builder exciseLicenceNumber(String exciseLicenceNumber) {

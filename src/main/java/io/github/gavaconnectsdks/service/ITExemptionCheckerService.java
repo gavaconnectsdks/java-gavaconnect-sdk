@@ -18,9 +18,8 @@ public class ITExemptionCheckerService extends IService {
     public ITExemptionCheckerResponse request(ITExceptionCheckerRequest request) throws IOException  ,InterruptedException , IllegalAccessException {
         try{
             ValidatorEngine.validate(request);    
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
             TaxpayerDetailsWrapper<ITExceptionCheckerRequest> taxpayerDetailsWrapper=new TaxpayerDetailsWrapper<>(request);
-            ITExemptionCheckerResponse response=httpClient.post(path, taxpayerDetailsWrapper, ITExemptionCheckerResponse.class, auth.getAuthorizationBearerHeader());
+            ITExemptionCheckerResponse response=httpClient.post(this.endpoint, taxpayerDetailsWrapper, ITExemptionCheckerResponse.class, auth.getAuthorizationBearerHeader());
             return response;
         }catch(IOException  |InterruptedException | IllegalAccessException e ){
             throw  e;

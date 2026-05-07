@@ -12,7 +12,7 @@ public class CustDecStatusCheckerRequest {
     private CustDecStatusCheckerRequest(Builder builder){
         this.declarationNumber=builder.declarationNumber;
     }
-    private static class Builder{
+    public static class Builder{
         private String declarationNumber;
         
         public Builder declarationNumber(String declarationNumber) {

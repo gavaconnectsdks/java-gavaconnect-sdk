@@ -1,21 +1,25 @@
 package io.github.gavaconnectsdks.dtos.requests;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.github.gavaconnectsdks.exceptions.ValidationException;
 import io.github.gavaconnectsdks.utils.annotations.Pin;
 
 public class KnowKraOfficeRequest {
     @Pin
+    @JsonProperty("kraPIN")
     private final String kraPin;
 
     private KnowKraOfficeRequest(Builder builder){
         this.kraPin=builder.kraPin;
     }
 
-    private static class Builder{
+    public static class Builder{
         @Pin
+        
         private String kraPin;
 
-        public Builder KraPin(String kraPin) {
+        public Builder kraPin(String kraPin) {
             this.kraPin = kraPin;
             return this;
         }

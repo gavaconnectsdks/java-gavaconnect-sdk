@@ -17,8 +17,7 @@ public class TccCheckerService extends IService {
     public TccCheckerResponse request(TccCheckerRequest request) throws IllegalAccessException,IOException,InterruptedException{
         try {
             ValidatorEngine.validate(request);
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
-            TccCheckerResponse response=httpClient.post(path, request, TccCheckerResponse.class, auth.getAuthorizationBearerHeader());
+            TccCheckerResponse response=httpClient.post(this.endpoint, request, TccCheckerResponse.class, auth.getAuthorizationBearerHeader());
             return response;  
         } catch (IllegalAccessException|IOException|InterruptedException  e) {
             throw e;

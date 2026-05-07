@@ -45,7 +45,7 @@ public class PinRegistrationRequest {
         this.isPinWithNoObligation=builder.isPinWithObligation?"YES":"NO";
     }
 
-    private static class Builder{
+    public static class Builder{
         private TaxpayerTypeEnum taxPayerType;
         private String identificationNumber;
         private LocalDate dateOfBirth;

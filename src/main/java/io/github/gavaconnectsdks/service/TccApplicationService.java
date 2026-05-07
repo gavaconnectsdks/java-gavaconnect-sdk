@@ -21,10 +21,9 @@ public class TccApplicationService extends IService {
     public TccApplicationResponse request(TccApplicationRequest request) throws IOException  , InterruptedException , IllegalAccessException{
          try{
             ValidatorEngine.validate(request);
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
             TaxpayerDetailsWrapper<TccApplicationRequest> taxpayerDetailsWrapper=new TaxpayerDetailsWrapper<>(request);
             JavaType type=this.mapper.getTypeFactory().constructParametricType(TaxpayerDetailsWrapper.class, TccApplicationResponse.class);
-            ResponseWrapper<TccApplicationResponse> response=httpClient.post(path, taxpayerDetailsWrapper, type, auth.getAuthorizationBearerHeader());
+            ResponseWrapper<TccApplicationResponse> response=httpClient.post(this.endpoint, taxpayerDetailsWrapper, type, auth.getAuthorizationBearerHeader());
             return response.getResponse();
     }catch(IOException  | InterruptedException | IllegalAccessException e ){
         throw  e;

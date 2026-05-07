@@ -18,8 +18,7 @@ public class GenerateIncomeTaxWithholdingPRNService extends IService {
     public WithholdingPRNResponse request(IncomeTaxWithPRNRequest request) throws  IllegalAccessException,IOException,InterruptedException{
        try {
             ValidatorEngine.validate(request);
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
-            WithholdingPRNResponse response=httpClient.post(path, request, WithholdingPRNResponse.class, auth.getAuthorizationBearerHeader());
+            WithholdingPRNResponse response=httpClient.post(this.endpoint, request, WithholdingPRNResponse.class, auth.getAuthorizationBearerHeader());
             return response;  
         } catch (IllegalAccessException|IOException|InterruptedException  e) {
             throw e;

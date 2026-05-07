@@ -13,7 +13,7 @@ public class TccCheckerRequest {
         this.tccNumber=builder.tccNumber;
     }
 
-    private static class Builder{
+    public static class Builder{
         private  String kraPIN;
         private String tccNumber;
 

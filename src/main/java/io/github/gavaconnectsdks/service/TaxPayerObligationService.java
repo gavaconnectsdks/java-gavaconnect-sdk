@@ -17,8 +17,7 @@ public class TaxPayerObligationService extends IService {
     public FetchTaxpayerObligationresponse request(FetchTaxpayerObligationRequest request) throws IllegalAccessException,IOException,InterruptedException {
         try {
             ValidatorEngine.validate(request);
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
-            FetchTaxpayerObligationresponse response=httpClient.post(path, request, FetchTaxpayerObligationresponse.class, auth.getAuthorizationBearerHeader());
+            FetchTaxpayerObligationresponse response=httpClient.post(this.endpoint, request, FetchTaxpayerObligationresponse.class, auth.getAuthorizationBearerHeader());
             return response;  
         } catch (IllegalAccessException|IOException|InterruptedException  e) {
             throw e;

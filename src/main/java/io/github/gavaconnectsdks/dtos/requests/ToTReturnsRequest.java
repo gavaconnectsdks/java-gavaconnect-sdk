@@ -30,7 +30,7 @@ public class ToTReturnsRequest {
         this.year=builder.year;
     }
 
-    private static class Builder{
+    public static class Builder{
         private String taxpayerPIN;
 
         private String month;

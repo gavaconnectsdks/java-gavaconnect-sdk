@@ -25,10 +25,9 @@ public class NilReturnService extends  IService {
             if(month<1 || month >12){
                 throw new IllegalArgumentException("Month must be numeric between 01 and 12 inclusive.");
             }
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
             TaxpayerDetailsWrapper<NilReturnRequest> taxpayerDetailsWrapper=new TaxpayerDetailsWrapper<>(request);
             JavaType type=this.mapper.getTypeFactory().constructParametricType(TaxpayerDetailsWrapper.class, NilReturnResponse.class);
-            ResponseWrapper<NilReturnResponse> response=httpClient.post(path, taxpayerDetailsWrapper, type, auth.getAuthorizationBearerHeader());
+            ResponseWrapper<NilReturnResponse> response=httpClient.post(this.endpoint, taxpayerDetailsWrapper, type, auth.getAuthorizationBearerHeader());
             return response.getResponse();
     }catch(IOException  | InterruptedException | IllegalAccessException e ){
         throw  e;

@@ -19,8 +19,7 @@ public class PinCheckerByIdService extends IService {
     public PinCheckerByIdResponse request(PinCheckerByIdRequest request) throws IllegalAccessException,IOException,InterruptedException {
         try {
              ValidatorEngine.validate(request);
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
-            PinCheckerByIdResponse response=httpClient.post(path, request, PinCheckerByIdResponse.class, auth.getAuthorizationBearerHeader());
+            PinCheckerByIdResponse response=httpClient.post(this.endpoint, request, PinCheckerByIdResponse.class, auth.getAuthorizationBearerHeader());
             return response;    
         } catch (IllegalAccessException|IOException|InterruptedException  e) {
             throw e;

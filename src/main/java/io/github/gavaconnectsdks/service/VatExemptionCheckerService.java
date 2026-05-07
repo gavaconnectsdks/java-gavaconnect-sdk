@@ -17,8 +17,7 @@ public class VatExemptionCheckerService extends IService {
     public VatExcemptionCheckerResponse requst(VatExcemptionCheckerRequest request) throws IllegalAccessException,IOException,InterruptedException{
         try {
             ValidatorEngine.validate(request);
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
-            VatExcemptionCheckerResponse response=httpClient.post(path, request, VatExcemptionCheckerResponse.class, auth.getAuthorizationBearerHeader());
+            VatExcemptionCheckerResponse response=httpClient.post(this.endpoint, request, VatExcemptionCheckerResponse.class, auth.getAuthorizationBearerHeader());
             return response;  
         } catch (IllegalAccessException|IOException|InterruptedException  e) {
             throw e;

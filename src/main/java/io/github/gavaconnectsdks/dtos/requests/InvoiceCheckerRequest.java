@@ -17,7 +17,7 @@ public class InvoiceCheckerRequest {
         this.invoiceNumber=builder.invoiceNumber;
     }
 
-    private static class Builder{
+    public static class Builder{
         private String invoiceNumber;
         private LocalDate invoicedDate;
 

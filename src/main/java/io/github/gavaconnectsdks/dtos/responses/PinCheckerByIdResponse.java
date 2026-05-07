@@ -3,6 +3,9 @@ package io.github.gavaconnectsdks.dtos.responses;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PinCheckerByIdResponse {
+    @JsonProperty(value = "ResponseCode")
+    private String responseCode;
+
     @JsonProperty(value="TaxpayerPIN")
     private String taxPayerPin;
 
@@ -25,5 +28,10 @@ public class PinCheckerByIdResponse {
         return this.taxPayerPin;
     }
 
-    
+    public String getResponseCode() {
+        return this.responseCode;
+    }
+    public void setResponseCode(String responseCode) {
+            this.responseCode = responseCode;
+    }
 }

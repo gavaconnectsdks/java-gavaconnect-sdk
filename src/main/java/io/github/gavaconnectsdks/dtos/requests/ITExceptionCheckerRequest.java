@@ -10,7 +10,7 @@ public class ITExceptionCheckerRequest {
         this.pin=builder.pin;
     }
 
-    private static class Builder{
+    public static class Builder{
         @Pin
         private String pin;
 

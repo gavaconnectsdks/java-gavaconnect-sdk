@@ -35,7 +35,7 @@ public class NilReturnRequest {
         this.year=builder.year;
     }
     
-    private static class Builder{
+    public static class Builder{
 
     private String taxpayerPIN;
 

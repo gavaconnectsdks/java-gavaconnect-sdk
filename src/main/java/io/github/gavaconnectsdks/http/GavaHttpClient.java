@@ -143,6 +143,7 @@ public class GavaHttpClient {
 
     public <T> T post (String path,Object body,JavaType responseType,String accessToken) throws IOException,InterruptedException {
         String json=mapper.writeValueAsString(body);
+
         HttpRequest request=baseRequest(path)
                             .POST(HttpRequest.BodyPublishers.ofString(json))
                             .header("Authorization", "Bearer "+accessToken)
@@ -153,6 +154,8 @@ public class GavaHttpClient {
     }
      public <T> T post (String path,Object body,Class<T> responseType,String accessToken) throws IOException,InterruptedException {
         String json=mapper.writeValueAsString(body);
+
+        System.out.println("Request Body: " + json+" path "+path +" accessToken "+accessToken);
         HttpRequest request=baseRequest(path)
                             .POST(HttpRequest.BodyPublishers.ofString(json))
                             .header("Authorization", "Bearer "+accessToken)

@@ -13,20 +13,20 @@ public class PinCheckerByIdRequest {
     private final String taxpayerId;
 
     private PinCheckerByIdRequest(Builder builder){
-        this.taxpayerId=builder.taxpayerId.getTaxpayerType();
-        this.taxpayerType=builder.taxpayerType;
+        this.taxpayerId=builder.taxpayerId;
+        this.taxpayerType=builder.taxpayerType.getTaxpayerType();
     }
 
-    private static class Builder{
-        private String taxpayerType;
-        private TaxpayerTypeEnum taxpayerId;
+    public static class Builder{
+        private TaxpayerTypeEnum taxpayerType;
+        private String taxpayerId;
 
-        public Builder taxpayerId(TaxpayerTypeEnum taxpayerId) {
+        public Builder taxpayerId(String taxpayerId) {
             this.taxpayerId = taxpayerId;
             return this;
         }
 
-        public Builder taxpayerType(String taxpayerType) {
+        public Builder taxpayerType(TaxpayerTypeEnum taxpayerType) {
             this.taxpayerType = taxpayerType;
             return this;
         }

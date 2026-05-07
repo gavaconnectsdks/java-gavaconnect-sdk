@@ -20,7 +20,7 @@ public class TccApplicationRequest {
         this.taxpayerPIN=builder.taxpayerPIN;
     }
 
-    private static class Builder{
+    public static class Builder{
         private String taxpayerPIN;
         private String reasonForTaxComplianceCertificate;
 

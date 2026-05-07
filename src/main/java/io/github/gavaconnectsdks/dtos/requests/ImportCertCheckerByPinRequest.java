@@ -15,7 +15,7 @@ public class ImportCertCheckerByPinRequest {
         this.pinNo=builder.pinNo;
     }
 
-    private static class Builder{
+    public static class Builder{
         private String pinNo;
 
         public Builder PinNo(String pinNo) {

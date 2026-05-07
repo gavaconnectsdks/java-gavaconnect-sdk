@@ -18,8 +18,7 @@ public class ExciseLicenceCheckerByPin extends IService {
     public ExciseLicenseCheckerByPinResponse request(ExciseLicenseCheckerByPinRequest request) throws IllegalAccessException,IOException,InterruptedException{
       try {
             ValidatorEngine.validate(request);
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
-            ExciseLicenseCheckerByPinResponse response=httpClient.post(path, request, ExciseLicenseCheckerByPinResponse.class, auth.getAuthorizationBearerHeader());
+            ExciseLicenseCheckerByPinResponse response=httpClient.post(this.endpoint, request, ExciseLicenseCheckerByPinResponse.class, auth.getAuthorizationBearerHeader());
             return response;  
         } catch (IllegalAccessException|IOException|InterruptedException  e) {
             throw e;

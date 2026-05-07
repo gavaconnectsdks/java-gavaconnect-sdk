@@ -18,8 +18,7 @@ public class ExciseLicenceCheckerByCertificateService extends IService {
     public ExciseLicenceCheckerByCertNoResponse request(ExciseLicenceCheckerByCertNoRequest request) throws IllegalAccessException,IOException,InterruptedException {
         try {
             ValidatorEngine.validate(request);
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
-            ExciseLicenceCheckerByCertNoResponse response=httpClient.post(path, request, ExciseLicenceCheckerByCertNoResponse.class, auth.getAuthorizationBearerHeader());
+            ExciseLicenceCheckerByCertNoResponse response=httpClient.post(this.endpoint, request, ExciseLicenceCheckerByCertNoResponse.class, auth.getAuthorizationBearerHeader());
             return response;  
         } catch (IllegalAccessException|IOException|InterruptedException  e) {
             throw e;

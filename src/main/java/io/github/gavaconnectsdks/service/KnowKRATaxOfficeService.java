@@ -11,14 +11,15 @@ import io.github.gavaconnectsdks.utils.engine.ValidatorEngine;
 public class KnowKRATaxOfficeService extends IService {
     public KnowKRATaxOfficeService(GavaConfig config,Auth auth) {
         super(config,auth);
-        this.endpoint="dtd/checker/v1/station";
+        this.endpoint="/dtd/checker/v1/station";
     }
 
     
     public KnowKraOfficeResponse request(KnowKraOfficeRequest request)throws IllegalAccessException,IOException,InterruptedException {
         try {
             ValidatorEngine.validate(request);
-            String path=new StringBuilder(config.getEnvironment().getBaseUrl()).append(this.endpoint).toString();
+            String path=this.endpoint;
+            System.out.println("Request Header: " + auth.getAuthorizationBearerHeader());
             KnowKraOfficeResponse response=httpClient.post(path, request, KnowKraOfficeResponse.class, auth.getAuthorizationBearerHeader());
             return response;  
         } catch (IllegalAccessException|IOException|InterruptedException  e) {

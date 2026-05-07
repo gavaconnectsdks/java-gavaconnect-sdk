@@ -16,7 +16,7 @@ public class IncomeTaxWithPRNRequest {
         this.transactionHeader=builder.transactionHeader;
     }
 
-    private  static class Builder{
+    public  static class Builder{
         private PRNRequestHeader transactionHeader;
         private List<IncomeTaxWithhDetails> transactionDetails;
 

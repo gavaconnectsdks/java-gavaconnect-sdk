@@ -12,7 +12,7 @@ public class ImportCertificateCheckerRequest {
         this.certificateNumber=builder.certificateNumber;
     }
 
-    private static class Builder{
+    public static class Builder{
         private String certificateNumber;
 
         public Builder certificateNumber(String certificateNumber) {
