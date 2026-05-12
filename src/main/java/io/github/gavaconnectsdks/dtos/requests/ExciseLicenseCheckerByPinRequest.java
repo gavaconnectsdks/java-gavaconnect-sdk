@@ -2,7 +2,7 @@ package io.github.gavaconnectsdks.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.utils.annotations.Pin;
 
 public class ExciseLicenseCheckerByPinRequest {
@@ -25,7 +25,7 @@ public class ExciseLicenseCheckerByPinRequest {
 
         public ExciseLicenseCheckerByPinRequest build(){
             if(this.pinNo==null){
-                throw new ValidationException("pinNo is required");
+                throw new BadRequestException("pinNo is required");
             }
             return new ExciseLicenseCheckerByPinRequest(this);
         }

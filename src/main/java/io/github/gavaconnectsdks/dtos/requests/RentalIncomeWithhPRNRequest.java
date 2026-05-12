@@ -4,7 +4,7 @@ import java.util.List;
 
 import io.github.gavaconnectsdks.dtos.PRNRequestHeader;
 import io.github.gavaconnectsdks.dtos.RentalIncomeWithhDetails;
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 
 public class RentalIncomeWithhPRNRequest {
     private final PRNRequestHeader transactionHeader;
@@ -31,10 +31,10 @@ public class RentalIncomeWithhPRNRequest {
 
         public RentalIncomeWithhPRNRequest build(){
             if (this.transactionHeader==null) {
-                throw new ValidationException("transactionHeader is required.");
+                throw new BadRequestException("transactionHeader is required.");
             }
             if(this.transactionDetails==null){
-                throw new ValidationException("transactionDetails is required.");
+                throw new BadRequestException("transactionDetails is required.");
             }
             return new RentalIncomeWithhPRNRequest(this);
         }

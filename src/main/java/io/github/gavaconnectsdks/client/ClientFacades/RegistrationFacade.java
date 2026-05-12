@@ -6,7 +6,7 @@ import io.github.gavaconnectsdks.auth.Auth;
 import io.github.gavaconnectsdks.config.GavaConfig;
 import io.github.gavaconnectsdks.dtos.requests.PinRegistrationRequest;
 import io.github.gavaconnectsdks.dtos.responses.PinRegistrationResponse;
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.service.PinRegistrationIndividualService;
 
 public class RegistrationFacade {
@@ -22,7 +22,7 @@ public class RegistrationFacade {
 
     public PinRegistrationResponse registerKRAPINIndividual(PinRegistrationRequest pinRegistrationRequest)throws IOException ,InterruptedException,IllegalAccessException{
         try {
-                if(pinRegistrationRequest==null) throw new ValidationException("Request body is required.");
+                if(pinRegistrationRequest==null) throw new BadRequestException("Request body is required.");
                 PinRegistrationIndividualService pinRegistrationIndividualService=new PinRegistrationIndividualService(this.config, this.auth);
                 return pinRegistrationIndividualService.request(pinRegistrationRequest);
             

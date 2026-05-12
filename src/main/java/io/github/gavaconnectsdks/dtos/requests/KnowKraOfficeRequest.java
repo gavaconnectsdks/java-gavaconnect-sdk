@@ -2,7 +2,7 @@ package io.github.gavaconnectsdks.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.utils.annotations.Pin;
 
 public class KnowKraOfficeRequest {
@@ -25,7 +25,7 @@ public class KnowKraOfficeRequest {
         }
         public KnowKraOfficeRequest build(){
             if(this.kraPin==null){
-                throw new ValidationException("kraPin is required");
+                throw new BadRequestException("kraPin is required");
             }
             return new KnowKraOfficeRequest(this);
         }

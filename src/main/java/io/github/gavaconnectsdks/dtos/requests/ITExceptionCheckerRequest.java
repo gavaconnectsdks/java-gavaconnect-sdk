@@ -1,6 +1,6 @@
 package io.github.gavaconnectsdks.dtos.requests;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.utils.annotations.Pin;
 
 public class ITExceptionCheckerRequest {
@@ -21,7 +21,7 @@ public class ITExceptionCheckerRequest {
 
         public ITExceptionCheckerRequest build(){
             if(this.pin==null){
-                throw new ValidationException("pin is required.");
+                throw new BadRequestException("pin is required.");
             }
             return new ITExceptionCheckerRequest(this);
         }

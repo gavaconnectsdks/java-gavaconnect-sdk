@@ -13,6 +13,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
+import io.github.gavaconnectsdks.exceptions.FourXXXException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
+import io.github.gavaconnectsdks.exceptions.ServerException;
+
 
 
 public class GavaHttpClient {
@@ -149,7 +154,14 @@ public class GavaHttpClient {
                             .header("Authorization", "Bearer "+accessToken)
                             .build();
         HttpResponse<String> response=executeWithRetry(request);
-
+        System.out.println(response.statusCode()+" "+response.body());
+        if (response.statusCode()>=400 && response.statusCode()<500) {
+            throw  new FourXXXException(response.body(),"ERR_"+response.statusCode());
+        }
+        if(response.statusCode()>=500){
+            throw new ServerException("Server error: "+response.body());
+        }
+        System.out.println(response.statusCode()+" "+response.body());
         return mapper.readValue(response.body(), responseType);
     }
      public <T> T post (String path,Object body,Class<T> responseType,String accessToken) throws IOException,InterruptedException {
@@ -161,6 +173,13 @@ public class GavaHttpClient {
                             .header("Authorization", "Bearer "+accessToken)
                             .build();
         HttpResponse<String> response=executeWithRetry(request);
+        if (response.statusCode()>=400 && response.statusCode()<500) {
+            throw  new FourXXXException(response.body(),"ERR_"+response.statusCode());
+        }
+        if(response.statusCode()>=500){
+            throw new ServerException("Server error: "+response.body());
+        }
+        System.out.println(response.statusCode()+" "+response.body());
 
         return mapper.readValue(response.body(), responseType);
     }

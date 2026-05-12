@@ -2,7 +2,7 @@ package io.github.gavaconnectsdks.dtos;
 
 import java.time.LocalDateTime;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.utils.annotations.Pin;
 
 public class RentalIncomeWithhDetails {
@@ -113,43 +113,43 @@ public class RentalIncomeWithhDetails {
 
         public RentalIncomeWithhDetails build(){
             if (this.typeOfProperty==null) {
-                throw new ValidationException("typeOfproperty in RentalIncomeWithhDetails is required");
+                throw new BadRequestException("typeOfproperty in RentalIncomeWithhDetails is required");
             }
             if (this.landlordPin==null) {
-                throw  new ValidationException("landlordPin in ReantalIncomeWithhDetails is required");
+                throw  new BadRequestException("landlordPin in ReantalIncomeWithhDetails is required");
             }
             if (this.invoiceNo==null) {
-                throw new ValidationException("invoiceNo in RentalIncomeWithhDetails is required.");
+                throw new BadRequestException("invoiceNo in RentalIncomeWithhDetails is required.");
             }
             if (this.invoiceDate==null) {
-                throw new ValidationException("invoiceDate in ReantalIncomeWithhDetails is required");
+                throw new BadRequestException("invoiceDate in ReantalIncomeWithhDetails is required");
             }
             if (this.paymentDate==null) {
-                throw  new ValidationException("paymentDate in RentalIncomeWithhDetails is required.");
+                throw  new BadRequestException("paymentDate in RentalIncomeWithhDetails is required.");
             }
             if (this.grossAmount==null) {
-                throw new ValidationException("grossAmount in RentalIncomeWithhDetails is required.");
+                throw new BadRequestException("grossAmount in RentalIncomeWithhDetails is required.");
             }
 
             if (this.taxRate==null) {
-                throw  new ValidationException("taxRate in RentalIncomeWithhDetails is required.");
+                throw  new BadRequestException("taxRate in RentalIncomeWithhDetails is required.");
             }
 
             if (this.taxAmount==null) {
-                throw new ValidationException("taxAmount in RetalIncomeWithhDetails is required.");
+                throw new BadRequestException("taxAmount in RetalIncomeWithhDetails is required.");
             }
 
             if (this.lrNumber==null) {
-                throw new ValidationException("lrNumber in ReantalIncomeWithhDetails is required.");
+                throw new BadRequestException("lrNumber in ReantalIncomeWithhDetails is required.");
             }
             if (this.building==null) {
-                throw  new ValidationException("building in RentalIncomeWithhDetails is required.");
+                throw  new BadRequestException("building in RentalIncomeWithhDetails is required.");
             }
             if (this.street==null) {
-                throw new ValidationException("street in RentalIncomeWithhDetails is required.");
+                throw new BadRequestException("street in RentalIncomeWithhDetails is required.");
             }
             if (this.town==null) {
-                throw new ValidationException("town in ReantalIncomeWithhDetails is required.");
+                throw new BadRequestException("town in ReantalIncomeWithhDetails is required.");
             }
             return  new RentalIncomeWithhDetails(this);
         }

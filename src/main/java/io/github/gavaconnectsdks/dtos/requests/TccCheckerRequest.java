@@ -1,6 +1,6 @@
 package io.github.gavaconnectsdks.dtos.requests;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.utils.annotations.Pin;
 
 public class TccCheckerRequest {
@@ -18,22 +18,22 @@ public class TccCheckerRequest {
         private String tccNumber;
 
 
-        public Builder KraPIN(String kraPIN) {
+        public Builder kraPIN(String kraPIN) {
             this.kraPIN = kraPIN;
             return this;
         }
 
-        public Builder TccNumber(String tccNumber) {
+        public Builder tccNumber(String tccNumber) {
             this.tccNumber = tccNumber;
             return this;
         }
 
         public TccCheckerRequest build(){
             if (this.kraPIN==null) {
-                throw new ValidationException("kraPIN is required");
+                throw new BadRequestException("kraPIN is required");
             }
             if (this.tccNumber==null) {
-                throw new ValidationException("tccNumber is required");
+                throw new BadRequestException("tccNumber is required");
             }
             return new TccCheckerRequest(this);
         }

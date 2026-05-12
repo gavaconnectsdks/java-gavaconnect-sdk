@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 
 public class InvoiceCheckerRequest {
     private final String invoiceNumber;
@@ -32,10 +32,10 @@ public class InvoiceCheckerRequest {
         }
         public InvoiceCheckerRequest build(){
             if(this.invoiceNumber==null){
-                throw new ValidationException("invoiceNumber is required");
+                throw new BadRequestException("invoiceNumber is required");
             }
             if(this.invoicedDate==null){
-                throw new ValidationException("invoiceDate is required");
+                throw new BadRequestException("invoiceDate is required");
             }
             return  new InvoiceCheckerRequest(this);
         }

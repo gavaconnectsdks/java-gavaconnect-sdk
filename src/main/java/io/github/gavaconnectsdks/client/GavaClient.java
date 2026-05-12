@@ -6,7 +6,7 @@ import io.github.gavaconnectsdks.client.ClientFacades.RegistrationFacade;
 import io.github.gavaconnectsdks.client.ClientFacades.StationFacade;
 import io.github.gavaconnectsdks.client.ClientFacades.WithholdingPRNGeneratorFacade;
 import io.github.gavaconnectsdks.config.GavaConfig;
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.http.GavaHttpClient;
 
 public class GavaClient {
@@ -15,7 +15,7 @@ public class GavaClient {
     private GavaHttpClient httpClient;
     public GavaClient(GavaConfig gavaConfig){
         if(gavaConfig==null){
-            throw new ValidationException("Configuration cannot be null");
+            throw new BadRequestException("Configuration cannot be null");
         }
 
         this.validateConfig(gavaConfig.getConsumerKey(), "consumerKey");
@@ -31,7 +31,7 @@ public class GavaClient {
 
     private void validateConfig(String value,String fieldName){
         if(value==null||value.trim().isEmpty()){
-            throw new ValidationException(fieldName+"in config is required");
+            throw new BadRequestException(fieldName+"in config is required");
         }
     }
 

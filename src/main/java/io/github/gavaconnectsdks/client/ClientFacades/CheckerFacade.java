@@ -28,7 +28,7 @@ import io.github.gavaconnectsdks.dtos.responses.PinCheckerByIdResponse;
 import io.github.gavaconnectsdks.dtos.responses.PinCheckerByPinResponse;
 import io.github.gavaconnectsdks.dtos.responses.TccCheckerResponse;
 import io.github.gavaconnectsdks.dtos.responses.VatExcemptionCheckerResponse;
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.service.CustDecStatusCheckerService;
 import io.github.gavaconnectsdks.service.ExciseLicenceCheckerByCertificateService;
 import io.github.gavaconnectsdks.service.ExciseLicenceCheckerByPin;
@@ -55,7 +55,7 @@ public class CheckerFacade {
 
     public TccCheckerResponse checkTaxCompliance(TccCheckerRequest tccCheckerRequest) throws IOException,InterruptedException,IllegalAccessException{
         try {
-            if(tccCheckerRequest==null) throw new ValidationException("Request body is required.");
+            if(tccCheckerRequest==null) throw new BadRequestException("Request body is required.");
             TccCheckerService tccCheckerService=new TccCheckerService(this.config, this.auth);
 
             return tccCheckerService.request(tccCheckerRequest);
@@ -68,7 +68,7 @@ public class CheckerFacade {
     public CustDecStatusCheckerResponse checkCustomsDeclarationStatus(CustDecStatusCheckerRequest custDecStatusCheckerRequest) throws IOException,InterruptedException,IllegalAccessException{
 
         try {
-            if(custDecStatusCheckerRequest==null) throw new ValidationException("Request body is required.");
+            if(custDecStatusCheckerRequest==null) throw new BadRequestException("Request body is required.");
             CustDecStatusCheckerService custDecStatusCheckerService=new CustDecStatusCheckerService(this.config, this.auth);
 
             return custDecStatusCheckerService.request(custDecStatusCheckerRequest);
@@ -80,7 +80,7 @@ public class CheckerFacade {
 
     public VatExcemptionCheckerResponse checkVatExemption(VatExcemptionCheckerRequest vatExcemptionCheckerRequest) throws IOException,InterruptedException,IllegalAccessException{
         try {
-            if(vatExcemptionCheckerRequest==null) throw new ValidationException("Request body is required.");
+            if(vatExcemptionCheckerRequest==null) throw new BadRequestException("Request body is required.");
             VatExemptionCheckerService vatExemptionCheckerService=new VatExemptionCheckerService(this.config, this.auth);
 
             return vatExemptionCheckerService.requst(vatExcemptionCheckerRequest);
@@ -93,7 +93,7 @@ public class CheckerFacade {
 
     public ExciseLicenseCheckerByPinResponse checkExciseLicenseByPIN(ExciseLicenseCheckerByPinRequest exciseLicenseCheckerByPinRequest )throws IOException,InterruptedException,IllegalAccessException{
         try {
-            if(exciseLicenseCheckerByPinRequest==null) throw new ValidationException("Request body is required.");
+            if(exciseLicenseCheckerByPinRequest==null) throw new BadRequestException("Request body is required.");
 
             ExciseLicenceCheckerByPin exciseLicenceCheckerByPin=new ExciseLicenceCheckerByPin(this.config, this.auth);
             return exciseLicenceCheckerByPin.request(exciseLicenseCheckerByPinRequest);
@@ -105,7 +105,7 @@ public class CheckerFacade {
     }
        public ExciseLicenceCheckerByCertNoResponse checkExciseLicenseByCertificateNumber(ExciseLicenceCheckerByCertNoRequest exciseLicenceCheckerByCertNoRequest) throws IOException ,InterruptedException,IllegalAccessException{
         try {
-            if(exciseLicenceCheckerByCertNoRequest==null) throw new ValidationException("Request body is required.");
+            if(exciseLicenceCheckerByCertNoRequest==null) throw new BadRequestException("Request body is required.");
             ExciseLicenceCheckerByCertificateService exciseLicenceCheckerByCertificateService=new ExciseLicenceCheckerByCertificateService(this.config, this.auth);
 
             return exciseLicenceCheckerByCertificateService.request(exciseLicenceCheckerByCertNoRequest);
@@ -119,7 +119,7 @@ public class CheckerFacade {
 
         try {
 
-        if(invoiceCheckerRequest==null) throw new ValidationException("Request body is required.");
+        if(invoiceCheckerRequest==null) throw new BadRequestException("Request body is required.");
         InvoiceCheckerService invoiceCheckerService=new InvoiceCheckerService(this.config, this.auth);
 
         return invoiceCheckerService.request(invoiceCheckerRequest);
@@ -132,7 +132,7 @@ public class CheckerFacade {
     }
      public ITExemptionCheckerResponse checkIncomeTaxExemption(ITExceptionCheckerRequest itExceptionCheckerRequest )throws IOException ,InterruptedException,IllegalAccessException{
         try {
-            if(itExceptionCheckerRequest==null) throw new ValidationException("Request body is required.");
+            if(itExceptionCheckerRequest==null) throw new BadRequestException("Request body is required.");
             ITExemptionCheckerService itExemptionCheckerService=new ITExemptionCheckerService(this.config, this.auth);
 
             return itExemptionCheckerService.request(itExceptionCheckerRequest);
@@ -146,7 +146,7 @@ public class CheckerFacade {
     public ImportCertificateCheckerResponse checkImportCertificateByCertificateNumber(ImportCertificateCheckerRequest importCertificateCheckerRequest )throws IOException ,InterruptedException,IllegalAccessException{
 
         try {
-            if(importCertificateCheckerRequest==null) throw new ValidationException("Request body is required.");
+            if(importCertificateCheckerRequest==null) throw new BadRequestException("Request body is required.");
             ImportCertificateCheckerByCertService importCertificateCheckerByCertService=new ImportCertificateCheckerByCertService(this.config, this.auth);
 
             return importCertificateCheckerByCertService.request(importCertificateCheckerRequest);
@@ -159,7 +159,7 @@ public class CheckerFacade {
 
     public ImportCertCheckerByPinResponse checkImportCertificateByPIN(ImportCertCheckerByPinRequest importCertCheckerByPinRequest )throws IOException ,InterruptedException,IllegalAccessException{
         try {
-            if(importCertCheckerByPinRequest==null) throw new ValidationException("Request body is required.");
+            if(importCertCheckerByPinRequest==null) throw new BadRequestException("Request body is required.");
             ImportCertificateCheckerByPinService importCertificateCheckerByPinService=new ImportCertificateCheckerByPinService(this.config, this.auth);
 
             return importCertificateCheckerByPinService.request(importCertCheckerByPinRequest);
@@ -172,7 +172,7 @@ public class CheckerFacade {
 
     public FetchTaxpayerObligationresponse checkTaxpayerObligations(FetchTaxpayerObligationRequest fetchTaxpayerObligationRequest )throws IOException ,InterruptedException,IllegalAccessException{
         try {
-                if(fetchTaxpayerObligationRequest==null) throw new ValidationException("Request body is required.");
+                if(fetchTaxpayerObligationRequest==null) throw new BadRequestException("Request body is required.");
                 TaxPayerObligationService taxPayerObligationService=new TaxPayerObligationService(this.config, this.auth);
                 
                 return taxPayerObligationService.request(fetchTaxpayerObligationRequest);
@@ -185,7 +185,7 @@ public class CheckerFacade {
     
     public PinCheckerByPinResponse checkPINByPIN(PinCheckerByPinRequest pinCheckerByPinRequest )throws IOException ,InterruptedException,IllegalAccessException{
         try {
-            if(pinCheckerByPinRequest==null) throw new ValidationException("Request body is required.");
+            if(pinCheckerByPinRequest==null) throw new BadRequestException("Request body is required.");
             PinChechkerByPinService pinChechkerByPinService=new PinChechkerByPinService(this.config, this.auth);
 
             return pinChechkerByPinService.request(pinCheckerByPinRequest);
@@ -197,7 +197,7 @@ public class CheckerFacade {
 
     public PinCheckerByIdResponse checkPINByID(PinCheckerByIdRequest pinCheckerByIdRequest)throws IOException ,InterruptedException,IllegalAccessException{
         try {
-                if(pinCheckerByIdRequest==null) throw new ValidationException("Request body is required.");
+                if(pinCheckerByIdRequest==null) throw new BadRequestException("Request body is required.");
                 PinCheckerByIdService pinCheckerByIdService=new PinCheckerByIdService(this.config, this.auth);
                 return pinCheckerByIdService.request(pinCheckerByIdRequest);
         } catch (IOException  | InterruptedException | IllegalAccessException e ) {

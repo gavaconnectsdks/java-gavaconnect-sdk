@@ -23,6 +23,7 @@ public class TccApplicationService extends IService {
             ValidatorEngine.validate(request);
             TaxpayerDetailsWrapper<TccApplicationRequest> taxpayerDetailsWrapper=new TaxpayerDetailsWrapper<>(request);
             JavaType type=this.mapper.getTypeFactory().constructParametricType(TaxpayerDetailsWrapper.class, TccApplicationResponse.class);
+            System.out.println("Request Body: "+this.mapper.writeValueAsString(taxpayerDetailsWrapper));
             ResponseWrapper<TccApplicationResponse> response=httpClient.post(this.endpoint, taxpayerDetailsWrapper, type, auth.getAuthorizationBearerHeader());
             return response.getResponse();
     }catch(IOException  | InterruptedException | IllegalAccessException e ){

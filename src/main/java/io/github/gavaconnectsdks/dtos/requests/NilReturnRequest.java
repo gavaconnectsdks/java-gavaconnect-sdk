@@ -2,7 +2,7 @@ package io.github.gavaconnectsdks.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.utils.annotations.CustomPattern;
 import io.github.gavaconnectsdks.utils.annotations.ObligationCode;
 import io.github.gavaconnectsdks.utils.annotations.Pin;
@@ -68,16 +68,16 @@ public class NilReturnRequest {
 
         public NilReturnRequest build(){
             if(this.taxpayerPIN==null){
-                throw new ValidationException("taxpayerPIN is required");
+                throw new BadRequestException("taxpayerPIN is required");
             }
             if (this.obligationCode==null) {
-                throw new ValidationException("obligationCode is required");
+                throw new BadRequestException("obligationCode is required");
             }
             if(this.month==null){
-                throw  new ValidationException("month is required");
+                throw  new BadRequestException("month is required");
             }
             if(this.year==null){
-                throw new ValidationException("year is required");
+                throw new BadRequestException("year is required");
             }
             return  new NilReturnRequest(this);
         }

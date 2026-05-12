@@ -2,7 +2,7 @@ package io.github.gavaconnectsdks.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.utils.enums.TaxpayerTypeEnum;
 
 public class PinCheckerByIdRequest {
@@ -33,10 +33,10 @@ public class PinCheckerByIdRequest {
 
         public PinCheckerByIdRequest build(){
             if(this.taxpayerId==null){
-                throw  new ValidationException("taxpayerId is required.");
+                throw  new BadRequestException("taxpayerId is required.");
             }
             if (this.taxpayerType==null) {
-                throw new ValidationException("taxpayerType is required.");
+                throw new BadRequestException("taxpayerType is required.");
             }
             return new PinCheckerByIdRequest(this);
         }

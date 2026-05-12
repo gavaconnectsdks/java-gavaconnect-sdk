@@ -2,7 +2,7 @@ package io.github.gavaconnectsdks.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 
 public class CustDecStatusCheckerRequest {
 
@@ -21,7 +21,7 @@ public class CustDecStatusCheckerRequest {
         }
         public CustDecStatusCheckerRequest build () {
             if(this.declarationNumber==null){
-                throw new ValidationException("declarationNumber is required");
+                throw new BadRequestException("declarationNumber is required");
             }
             return new CustDecStatusCheckerRequest(this);
         }

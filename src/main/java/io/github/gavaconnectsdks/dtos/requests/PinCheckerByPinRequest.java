@@ -2,7 +2,7 @@ package io.github.gavaconnectsdks.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.utils.annotations.Pin;
 
 public class PinCheckerByPinRequest {
@@ -23,7 +23,7 @@ public class PinCheckerByPinRequest {
         }
         public  PinCheckerByPinRequest build(){
             if (this.kraPin==null) {
-                throw new ValidationException("kraPin is mrequired.");
+                throw new BadRequestException("kraPin is mrequired.");
             }
             return new PinCheckerByPinRequest(this);
         }

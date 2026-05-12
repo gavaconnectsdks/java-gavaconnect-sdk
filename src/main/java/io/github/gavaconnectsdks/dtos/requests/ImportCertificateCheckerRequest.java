@@ -2,7 +2,7 @@ package io.github.gavaconnectsdks.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 
 public class ImportCertificateCheckerRequest {
     @JsonProperty(value="certificate_no")
@@ -22,7 +22,7 @@ public class ImportCertificateCheckerRequest {
 
         public ImportCertificateCheckerRequest build(){
             if(this.certificateNumber==null){
-                throw new ValidationException("certificateNumber is required.");
+                throw new BadRequestException("certificateNumber is required.");
             }
             return  new ImportCertificateCheckerRequest(this);
         }

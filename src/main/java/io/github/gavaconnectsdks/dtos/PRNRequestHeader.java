@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.utils.annotations.Pin;
 
 public class PRNRequestHeader {
@@ -83,28 +83,28 @@ public class PRNRequestHeader {
         public PRNRequestHeader build(){
             
             if (this.withholderPIN==null) {
-                throw new ValidationException("withholderPIN in PRNRequestHeader is required.");
+                throw new BadRequestException("withholderPIN in PRNRequestHeader is required.");
             }
             if (this.noOfTransactions==null) {
-                throw new ValidationException("noOfTransactions in PRNRequestHeader is required.");
+                throw new BadRequestException("noOfTransactions in PRNRequestHeader is required.");
             }
             if (this.transactionUniqueNo==null) {
-                throw  new ValidationException("transactionUniqueNo in PRNRequestHeader is required.");
+                throw  new BadRequestException("transactionUniqueNo in PRNRequestHeader is required.");
             }
             if (this.taxObligation==null) {
-                throw  new ValidationException("taxObligation in PRNRequestHeader is required.");
+                throw  new BadRequestException("taxObligation in PRNRequestHeader is required.");
             }
             if (this.taxPeriodFrom==null) {
-                throw  new ValidationException("taxPeriodFrom in PRNRequestHeader is required.");
+                throw  new BadRequestException("taxPeriodFrom in PRNRequestHeader is required.");
             }
             if (this.taxPeriodTo==null) {
-                throw new ValidationException("taxPeriodTo in PRNRequestHeader is required");
+                throw new BadRequestException("taxPeriodTo in PRNRequestHeader is required");
             }
             if (this.totalGrossAmount==null) {
-                throw new ValidationException("totalDrossAmount in PRNRequestHeader is required");
+                throw new BadRequestException("totalDrossAmount in PRNRequestHeader is required");
             }
             if (this.totalTaxAmount==null) {
-                throw new ValidationException("totalTaxAmount in PRNRequestHeader is required.");
+                throw new BadRequestException("totalTaxAmount in PRNRequestHeader is required.");
             }
 
             return new PRNRequestHeader(this);

@@ -8,7 +8,7 @@ import io.github.gavaconnectsdks.dtos.requests.NilReturnRequest;
 import io.github.gavaconnectsdks.dtos.requests.ToTReturnsRequest;
 import io.github.gavaconnectsdks.dtos.responses.NilReturnResponse;
 import io.github.gavaconnectsdks.dtos.responses.ToTReturnsResponse;
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.service.NilReturnService;
 import io.github.gavaconnectsdks.service.ToTReturnsService;
 
@@ -23,7 +23,7 @@ public class ReturnsFacade {
 
     public NilReturnResponse fileNilReturn(NilReturnRequest nilReturnRequest)throws IOException ,InterruptedException,IllegalAccessException{
         try {
-               if(nilReturnRequest==null) throw new ValidationException("Request body is required.");
+               if(nilReturnRequest==null) throw new BadRequestException("Request body is required.");
                NilReturnService nilReturnService=new NilReturnService(this.config,this.auth);
               return nilReturnService.request(nilReturnRequest);
         } catch (IOException |InterruptedException|IllegalAccessException e) {
@@ -34,7 +34,7 @@ public class ReturnsFacade {
 
     public ToTReturnsResponse fileTurnOverTaxReturn(ToTReturnsRequest toTReturnsRequest)throws IOException ,InterruptedException,IllegalAccessException{
         try {
-              if(toTReturnsRequest==null) throw new ValidationException("Request body is required.");
+              if(toTReturnsRequest==null) throw new BadRequestException("Request body is required.");
               ToTReturnsService toTReturnsService=new ToTReturnsService(this.config, this.auth);
               return toTReturnsService.request(toTReturnsRequest);
         } catch (IOException|InterruptedException|IllegalAccessException e) {

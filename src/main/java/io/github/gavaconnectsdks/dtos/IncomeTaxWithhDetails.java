@@ -2,7 +2,7 @@ package io.github.gavaconnectsdks.dtos;
 
 import java.time.LocalDateTime;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.utils.annotations.Pin;
 
 public class IncomeTaxWithhDetails {
@@ -119,46 +119,46 @@ public class IncomeTaxWithhDetails {
 
         public IncomeTaxWithhDetails build(){
             if (this.natureOfTransaction==null) {
-                throw new ValidationException("natureOfTransaction in IncomeTaxWithhDetails is required");
+                throw new BadRequestException("natureOfTransaction in IncomeTaxWithhDetails is required");
             }
             if (this.residentialStatus==null) {
-                throw new ValidationException("residentialStatus in IncomeTaxWithhDetails is required.");
+                throw new BadRequestException("residentialStatus in IncomeTaxWithhDetails is required.");
             }
             if (this.country==null) {
-                throw  new ValidationException("country in IncomeTaxWithhDetails is required.");
+                throw  new BadRequestException("country in IncomeTaxWithhDetails is required.");
             }
             if (this.paymentDate==null) {
-                throw new ValidationException("paymentDate in IncomeTaxWithhDetails is required.");
+                throw new BadRequestException("paymentDate in IncomeTaxWithhDetails is required.");
             }
             if (this.withholdeePin==null) {
-                throw new ValidationException("withholdeePin in IncomeTaxWithhDetails is required.");
+                throw new BadRequestException("withholdeePin in IncomeTaxWithhDetails is required.");
             }
             if (this.invoiceNo==null) {
-                throw new ValidationException("invoiceNo in IncomeTaxWithhDetails is required.");
+                throw new BadRequestException("invoiceNo in IncomeTaxWithhDetails is required.");
             }
 
             if(this.invoiceDate==null){
-                throw new ValidationException("invoiceDate in IncomeTaxWithhDetails is required.");
+                throw new BadRequestException("invoiceDate in IncomeTaxWithhDetails is required.");
             }
 
             if(this.grossAmount==null){
-                throw new ValidationException("grossAmount in IncomeTaxWithhDetails is required.");
+                throw new BadRequestException("grossAmount in IncomeTaxWithhDetails is required.");
             }
 
             if (this.taxAmount==null) {
-                throw new ValidationException("taxAmount in IncomeTaxWithhDetails is required.");
+                throw new BadRequestException("taxAmount in IncomeTaxWithhDetails is required.");
             }
 
             if (this.withholdeeName==null) {
-                throw  new ValidationException("withholdeeName in IncomeTaxWithhDetails is required.");
+                throw  new BadRequestException("withholdeeName in IncomeTaxWithhDetails is required.");
             }
 
             if (this.withholdeeEmail==null) {
-                throw new ValidationException("withholdeeEmail in IncomeTaxWithhDetails is required.");
+                throw new BadRequestException("withholdeeEmail in IncomeTaxWithhDetails is required.");
             }
 
             if (this.withholdeeAddress==null) {
-                throw new ValidationException("withholdeeAddress in IncomeTaxWithhDetails is required.");
+                throw new BadRequestException("withholdeeAddress in IncomeTaxWithhDetails is required.");
             }
             
             return new IncomeTaxWithhDetails(this);

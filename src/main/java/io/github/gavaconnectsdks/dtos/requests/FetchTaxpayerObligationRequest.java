@@ -2,7 +2,7 @@ package io.github.gavaconnectsdks.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.utils.annotations.Pin;
 
 public class FetchTaxpayerObligationRequest {
@@ -26,7 +26,7 @@ public class FetchTaxpayerObligationRequest {
 
         public FetchTaxpayerObligationRequest build(){
             if(this.taxPayerPIN==null){
-                throw new ValidationException("taxPayerPIN is required");
+                throw new BadRequestException("taxPayerPIN is required");
             }
             return new FetchTaxpayerObligationRequest(this);
         }

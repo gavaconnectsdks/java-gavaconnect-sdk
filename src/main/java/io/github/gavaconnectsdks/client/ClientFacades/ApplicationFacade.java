@@ -6,7 +6,7 @@ import io.github.gavaconnectsdks.auth.Auth;
 import io.github.gavaconnectsdks.config.GavaConfig;
 import io.github.gavaconnectsdks.dtos.requests.TccApplicationRequest;
 import io.github.gavaconnectsdks.dtos.responses.TccApplicationResponse;
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.service.TccApplicationService;
 
 public class ApplicationFacade {
@@ -20,7 +20,7 @@ public class ApplicationFacade {
 
         public TccApplicationResponse applyTaxComplianceCertificate(TccApplicationRequest tccApplicationRequest) throws IOException,InterruptedException,IllegalAccessException  {
         try {
-              if(tccApplicationRequest==null) throw new ValidationException("Request body is required");
+              if(tccApplicationRequest==null) throw new BadRequestException("Request body is required");
               TccApplicationService tccApplicationService=new TccApplicationService(this.config, this.auth);
               return tccApplicationService.request(tccApplicationRequest);
         } catch (IOException  | InterruptedException | IllegalAccessException  e) {

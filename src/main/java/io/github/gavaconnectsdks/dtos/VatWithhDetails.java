@@ -2,7 +2,7 @@ package io.github.gavaconnectsdks.dtos;
 
 import java.time.LocalDateTime;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 
 public class VatWithhDetails {
     private String withholdeePin;
@@ -57,19 +57,19 @@ public class VatWithhDetails {
 
         public VatWithhDetails build(){
             if (this.invoiceNo==null) {
-                throw  new ValidationException("invoiceNo in vatWithhDetails is required");
+                throw  new BadRequestException("invoiceNo in vatWithhDetails is required");
             }
             if (this.paymentDate==null) {
-                throw  new ValidationException("paymentDate in vatWithhDetails  is required.");
+                throw  new BadRequestException("paymentDate in vatWithhDetails  is required.");
             }
             if (this.grossAmount==null) {
-                throw  new ValidationException("grossAmount in vatWithhDetails  is required.");
+                throw  new BadRequestException("grossAmount in vatWithhDetails  is required.");
             }
             if (this.taxRate==null) {
-                throw new ValidationException("taxRate in vatWithhDetails  is required.");
+                throw new BadRequestException("taxRate in vatWithhDetails  is required.");
             }
             if (this.taxAmount==null) {
-                throw new ValidationException("taxAmount in vatWithhDetails  is required.");
+                throw new BadRequestException("taxAmount in vatWithhDetails  is required.");
             }
             return new VatWithhDetails(this);
         }

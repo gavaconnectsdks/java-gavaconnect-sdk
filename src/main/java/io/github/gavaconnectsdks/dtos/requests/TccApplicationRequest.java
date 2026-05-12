@@ -2,7 +2,7 @@ package io.github.gavaconnectsdks.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.github.gavaconnectsdks.exceptions.ValidationException;
+import io.github.gavaconnectsdks.exceptions.BadRequestException;
 import io.github.gavaconnectsdks.utils.annotations.Length;
 import io.github.gavaconnectsdks.utils.annotations.Pin;
 
@@ -36,10 +36,10 @@ public class TccApplicationRequest {
 
         public TccApplicationRequest build(){
             if(this.taxpayerPIN==null){
-                throw new ValidationException("taxpayerPIN is required");
+                throw new BadRequestException("taxpayerPIN is required");
             }
             if (this.reasonForTaxComplianceCertificate==null) {
-                throw new ValidationException("reasonForTaxComplianceCertificate is required");
+                throw new BadRequestException("reasonForTaxComplianceCertificate is required");
             }
             return  new TccApplicationRequest(this);
         }   
